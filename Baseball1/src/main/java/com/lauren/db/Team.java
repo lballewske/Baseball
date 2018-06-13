@@ -2,17 +2,21 @@ package com.lauren.db;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="MLB_Teams")
-
+@Table(name="mlb_teams")
 public class Team {
     private int teamId;
     private String teamName;
     private String abbreviation;
 
-    @Column(name="teamID", nullable=false)
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="team_id", nullable=false)
     public int getTeamId() {
         return teamId;
     }

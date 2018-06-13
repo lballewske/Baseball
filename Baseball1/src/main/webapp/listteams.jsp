@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <html>
 <body>
 <table>
@@ -11,7 +10,7 @@
 <td> abbreviation
 </td>
 </tr>
-<c:forEach items="${teams}" var="team">
+<c:forEach items='${teams}' var="team">
 <tr>
 <td> ${team.teamId}
 </td>
