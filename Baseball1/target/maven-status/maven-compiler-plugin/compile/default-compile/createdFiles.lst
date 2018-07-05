@@ -1,5 +1,0 @@
-com/lauren/BaseballStartupListener.class
-com/lauren/web/stripes/ListTeamsActionBean.class
-com/lauren/db/HibernateUtil.class
-com/lauren/db/PersistenceManager.class
-com/lauren/db/Team.class
