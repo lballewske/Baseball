@@ -1,8 +1,11 @@
 package com.lauren.web.restclient;
 
+import com.lauren.web.restclient.dto.GamesDTO;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import org.codehaus.jackson.map.DeserializationConfig.Feature;
+import org.codehaus.jackson.map.ObjectMapper;
 
 public class JerseyGet {
 
@@ -23,7 +26,11 @@ public class JerseyGet {
                         + response.getStatus());
             }
 
-            String output = response.getEntity(String.class);
+//            String output = response.getEntity(String.class);
+
+            ObjectMapper mapper = new ObjectMapper().configure(Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            GamesDTO output  = mapper.readValue(response.getEntity(String.class),  GamesDTO.class);
+//            GameDTO output = response.getEntity(GameDTO.class);
 
             System.out.println("Output from Server .... \n");
             System.out.println(output);

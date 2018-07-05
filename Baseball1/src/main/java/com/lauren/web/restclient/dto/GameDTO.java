@@ -1,20 +1,26 @@
 package com.lauren.web.restclient.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Timer;
+import javax.xml.bind.annotation.XmlRootElement;
+import org.codehaus.jackson.annotate.JsonProperty;
 
+@XmlRootElement
 public class GameDTO {
 
     private String id;
+
+    @JsonProperty("created_at")
     private Date createdAt;
+    @JsonProperty("updated_at")
     private Date updatedAt;
     private int attendance;
     private String awayTeamOutcome;
     private int awayTeamScore;
     private String broadcast;
     private boolean daytime;
-    private Timer duration;
+    private int duration;
     private Date endedAt;
     private String homeTeamOutcome;
     private int homeTeamScore;
@@ -22,7 +28,9 @@ public class GameDTO {
     private int intervalNumber;
     private String intervalType;
     private String label;
-    private String name
+    private String name;
+
+    @JsonFormat(pattern = "on MMMM  d, yyyy")
     private Date on;
     private int period;
     private String periodLabel;
@@ -110,11 +118,11 @@ public class GameDTO {
         this.daytime = daytime;
     }
 
-    public Timer getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(Timer duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
