@@ -1,5 +1,7 @@
 package com.lauren.web.restclient.dto;
 
+#https://api.stattleship.com/baseball/mlb/games
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 import java.util.List;
@@ -9,49 +11,83 @@ import org.codehaus.jackson.annotate.JsonProperty;
 @XmlRootElement
 public class GameDTO {
 
+    @JsonProperty("id")
     private String id;
-
     @JsonProperty("created_at")
     private Date createdAt;
     @JsonProperty("updated_at")
     private Date updatedAt;
+    @JsonProperty("attendance")
     private int attendance;
+    @JsonProperty("awayTeamOutcome")
     private String awayTeamOutcome;
+    @JsonProperty("awayTeamScore")
     private int awayTeamScore;
+    @JsonProperty("broadcast")
     private String broadcast;
+    @JsonProperty("daytime")
     private boolean daytime;
+    @JsonProperty("duration")
     private int duration;
+    @JsonProperty("endedAt")
     private Date endedAt;
+    @JsonProperty("homeTeamOutcome")
     private String homeTeamOutcome;
+    @JsonProperty("homeTeamScore")
     private int homeTeamScore;
+    @JsonProperty("interval")
     private String interval;
+    @JsonProperty("intervalNumber")
     private int intervalNumber;
+    @JsonProperty("intervalType")
     private String intervalType;
+    @JsonProperty("label")
     private String label;
+    @JsonProperty("name")
     private String name;
-
     @JsonFormat(pattern = "on MMMM  d, yyyy")
     private Date on;
+    @JsonProperty("period")
     private int period;
+    @JsonProperty("periodLabel")
     private String periodLabel;
+    @JsonProperty("scoreDiffernetial")
     private int scoreDifferential;
+    @JsonProperty("scoreLine")
     private String scoreline;
+    @JsonProperty("slug")
     private String slug;
+    @JsonProperty("startedAt")
     private Date startedAt;
+    @JsonProperty("status")
     private String status;
+    @JsonProperty("televisionCoverage")
     private String televisionCoverage;
+    @JsonProperty("temperature")
     private double temperature;
+    @JsonProperty("temperatureUnit")
     private String temperatureUnit;
+    @JsonProperty("title")
     private String title;
+    @JsonProperty("weatherConditions")
     private String weatherConditions;
+    @JsonProperty("windDirection")
     private String windDirection;
+    @JsonProperty("windSpeed")
     private double windSpeed;
+    @JsonProperty("windSpeedUnit")
     private String windSpeedUnit;
+    @JsonProperty("homeTeamId")
     private String homeTeamId;
+    @JsonProperty("awayTeamId")
     private String awayTeamId;
+    @JsonProperty("winningTeamId")
     private String winningTeamId;
+    @JsonProperty("seasonId")
     private String seasonId;
+    @JsonProperty("venueId")
     private String venueId;
+    @JsonProperty("officialIds")
     private List <String> officialIds;
 
     public String getId() {

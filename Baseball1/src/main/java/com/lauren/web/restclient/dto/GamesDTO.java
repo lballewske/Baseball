@@ -2,6 +2,7 @@ package com.lauren.web.restclient.dto;
 
 import java.util.List;
 
+
 public class GamesDTO {
     private List<GameDTO> games;
 
