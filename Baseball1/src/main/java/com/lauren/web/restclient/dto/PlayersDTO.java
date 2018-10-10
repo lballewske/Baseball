@@ -56,7 +56,7 @@ public class PlayersDTO {
     @JsonProperty("position_name")
     private String positionName;
     @JsonProperty("pro_debut")
-    private Date proDebut,
+    private Date proDebut;
     @JsonProperty("salary")
     private double salary;
     @JsonProperty("salary_currency")

@@ -15,7 +15,7 @@ public class LineupDTO {
     @JsonProperty("active")
     private boolean active;
     @JsonProperty("bats")
-    private String bats
+    private String bats;
     @JsonProperty("birth_date")
     private Date birthDate;
     @JsonProperty("captain") //returns null sometimes
@@ -25,7 +25,7 @@ public class LineupDTO {
     @JsonProperty("country")
     private String country;
     @JsonProperty("draft_overall_pick") //returns null sometimes (as do the other draft variables following)
-    private String //?// draftOverallPick;
+    private String draftOverallPick; //?//
     @JsonProperty("draft_round")
     private String draftRound;
     @JsonProperty("draft_season")
@@ -387,5 +387,13 @@ public class LineupDTO {
 
     public void setTeamId(String teamId) {
         this.teamId = teamId;
+    }
+
+    public String getDraftOverallPick() {
+        return draftOverallPick;
+    }
+
+    public void setDraftOverallPick(String draftOverallPick) {
+        this.draftOverallPick = draftOverallPick;
     }
 }

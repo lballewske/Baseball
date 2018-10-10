@@ -13,7 +13,7 @@ public class PlayerSeasonStatsDTO {
     @JsonProperty("interval_type")
     private String intervalType;
     @JsonProperty("statistics_on")
-    private Date statisticsOn; : #"2018-06-15"
+    private Date statisticsOn; //"2018-06-15"
     @JsonProperty("hitter_games_completed")
     private int hitterGamesCompleted;
     @JsonProperty("hitter_games_finished")
@@ -180,7 +180,7 @@ public class PlayerSeasonStatsDTO {
     private int shutouts;
     @JsonProperty("save_opportunities")
     private int saveOpportunities;
-    @JsonProperty("team_shutouts"): /*: null,*/
+    @JsonProperty("team_shutouts") /*: null,*/
     private int teamShutouts;
     @JsonProperty("wins") /*: null,*/
     private int wins;
@@ -228,7 +228,7 @@ public class PlayerSeasonStatsDTO {
     private int foulBallsThrowns;
     @JsonProperty("intentional_balls_throwns")
     private int intentionalBallsThrowns;
-    @JsonProperty("strikes_thrown_looking":)
+    @JsonProperty("strikes_thrown_looking")
     private int strikesThrownLooking;
     @JsonProperty("strikes_thrown_swinging")
     private int strikesThrownSwinging;

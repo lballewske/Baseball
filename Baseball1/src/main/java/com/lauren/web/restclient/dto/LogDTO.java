@@ -68,7 +68,7 @@ public class LogDTO {
     private int hits;
     @JsonProperty("home_runs")
     private int homeRuns;
-    @JsonProperty("innings_pitched"): null,
+    @JsonProperty("innings_pitched")  //null,
     private double inningsPitched;
     @JsonProperty("intentional_walks")
     private int intentionalWalks;

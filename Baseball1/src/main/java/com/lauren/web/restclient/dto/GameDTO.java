@@ -1,6 +1,6 @@
 package com.lauren.web.restclient.dto;
 
-#https://api.stattleship.com/baseball/mlb/games
+//https://api.stattleship.com/baseball/mlb/games
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
