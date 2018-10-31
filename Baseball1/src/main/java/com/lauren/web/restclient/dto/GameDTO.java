@@ -45,8 +45,9 @@ public class GameDTO {
     private String label;
     @JsonProperty("name")
     private String name;
-    @JsonFormat(pattern = "on MMMM  d, yyyy")
-    private Date on;
+    @JsonProperty("on")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "'on' MMMMMMM  d, yyyy")
+    private String on;
     @JsonProperty("period")
     private int period;
     @JsonProperty("periodLabel")
@@ -226,11 +227,11 @@ public class GameDTO {
         this.name = name;
     }
 
-    public Date getOn() {
+    public String getOn() {
         return on;
     }
 
-    public void setOn(Date on) {
+    public void setOn(String on) {
         this.on = on;
     }
 
