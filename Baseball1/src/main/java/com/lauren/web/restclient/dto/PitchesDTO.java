@@ -1,9 +1,7 @@
 //package com.lauren.web.restclient.dto;
 //
 
-//was going to do this one, but I don't know if I care about each individual pitch. as it's being
-//built outside of the season and I was never intending on doing a live update thing, I think this
-//doesn't matter in the scope of this project
+//was going to do this one, but I don't know if I care about each individual pitch. as I was never intending on doing a live update thing, I think this doesn't matter in the scope of this project
 
 //public class PitchesDTO {
 //
