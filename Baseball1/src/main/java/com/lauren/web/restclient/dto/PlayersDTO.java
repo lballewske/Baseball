@@ -6,6 +6,8 @@ import java.time.Year;
 import java.util.Currency;
 import java.util.Date;
 
+//https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2018
+
 public class PlayersDTO {
     @JsonProperty("id")
     private String id;

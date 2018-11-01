@@ -3,6 +3,8 @@ package com.lauren.web.restclient.dto;
 import org.codehaus.jackson.annotate.JsonProperty;
 import java.util.Date;
 
+//https://api.stattleship.com/baseball/mlb/starting_pitchers?season_id=mlb-2018
+
 public class StartingPitchersDTO {
     @JsonProperty("id")
     private String id;

@@ -5,6 +5,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import java.util.Currency;
 import java.util.Date;
 
+//https://api.stattleship.com/baseball/mlb/lineups?season_id=mlb-2018
+
 public class LineupDTO {
     @JsonProperty("id")
     private String id;

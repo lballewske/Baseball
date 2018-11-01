@@ -1,12 +1,12 @@
 package com.lauren.web.restclient.dto;
 
-//https://api.stattleship.com/baseball/mlb/games
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.codehaus.jackson.annotate.JsonProperty;
+
+//https://api.stattleship.com/baseball/mlb/games?season_id=mlb-2018
 
 @XmlRootElement
 public class GameDTO {
