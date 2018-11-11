@@ -5,7 +5,7 @@ import java.util.Date;
 
 //https://api.stattleship.com/baseball/mlb/player_season_stats?season_id=mlb-2018
 
-public class PlayerSeasonStatsDTO {
+public class PlayerSeasonStatsDTO extends BaseDTO {
     @JsonProperty("id")
     private String id;
     @JsonProperty("created_at")

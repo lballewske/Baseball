@@ -7,7 +7,7 @@ import java.util.Date;
 
 //https://api.stattleship.com/baseball/mlb/scoreboards?mlb-2018
 
-public class ScoreboardDTO {
+public class ScoreboardDTO extends BaseDTO {
     @JsonProperty("id")
     private String id;
     @JsonProperty("created_at")

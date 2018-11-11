@@ -4,7 +4,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.util.Date;
 
-public class TeamSeasonStatsDTO {
+public class TeamSeasonStatsDTO extends BaseDTO {
 
     @JsonProperty("id")
     private String id;

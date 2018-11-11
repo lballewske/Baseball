@@ -2,12 +2,13 @@ package com.lauren.web.restclient.dto;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
+import java.time.Year;
 import java.util.Currency;
 import java.util.Date;
 
-//https://api.stattleship.com/baseball/mlb/lineups?season_id=mlb-2018
+//https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2018
 
-public class LineupDTO extends BaseDTO {
+public class PlayerDTO extends BaseDTO {
     @JsonProperty("id")
     private String id;
     @JsonProperty("created_at")
@@ -20,18 +21,18 @@ public class LineupDTO extends BaseDTO {
     private String bats;
     @JsonProperty("birth_date")
     private Date birthDate;
-    @JsonProperty("captain") //returns null sometimes
-    private String capatin;
+    @JsonProperty("captain")
+    private String captain;
     @JsonProperty("city")
     private String city;
     @JsonProperty("country")
     private String country;
-    @JsonProperty("draft_overall_pick") //returns null sometimes (as do the other draft variables following)
-    private String draftOverallPick; //?//
+    @JsonProperty("draft_overall_pick")
+    private int draftOverallPick;
     @JsonProperty("draft_round")
-    private String draftRound;
+    private int draftRound;
     @JsonProperty("draft_season")
-    private String draftSeason;
+    private Year draftSeason;
     @JsonProperty("draft_team_name")
     private String draftTeamName;
     @JsonProperty("first_name")
@@ -47,8 +48,8 @@ public class LineupDTO extends BaseDTO {
     @JsonProperty("last_name")
     private String lastName;
     @JsonProperty("mlbam_id")
-    private int mlbamId;
-    @JsonProperty("name") //can be empty
+    private String mlbamId;
+    @JsonProperty("name")
     private String name;
     @JsonProperty("nickname")
     private String nickname;
@@ -77,7 +78,7 @@ public class LineupDTO extends BaseDTO {
     @JsonProperty("unit_of_weight")
     private String unitOfWeight;
     @JsonProperty("weight")
-    private String weight;
+    private double weight;
     @JsonProperty("years_of_experience")
     private double yearsOfExperience;
     @JsonProperty("league_id")
@@ -135,12 +136,12 @@ public class LineupDTO extends BaseDTO {
         this.birthDate = birthDate;
     }
 
-    public String getCapatin() {
-        return capatin;
+    public String getCaptain() {
+        return captain;
     }
 
-    public void setCapatin(String capatin) {
-        this.capatin = capatin;
+    public void setCaptain(String captain) {
+        this.captain = captain;
     }
 
     public String getCity() {
@@ -159,19 +160,27 @@ public class LineupDTO extends BaseDTO {
         this.country = country;
     }
 
-    public String getDraftRound() {
+    public int getDraftOverallPick() {
+        return draftOverallPick;
+    }
+
+    public void setDraftOverallPick(int draftOverallPick) {
+        this.draftOverallPick = draftOverallPick;
+    }
+
+    public int getDraftRound() {
         return draftRound;
     }
 
-    public void setDraftRound(String draftRound) {
+    public void setDraftRound(int draftRound) {
         this.draftRound = draftRound;
     }
 
-    public String getDraftSeason() {
+    public Year getDraftSeason() {
         return draftSeason;
     }
 
-    public void setDraftSeason(String draftSeason) {
+    public void setDraftSeason(Year draftSeason) {
         this.draftSeason = draftSeason;
     }
 
@@ -231,11 +240,11 @@ public class LineupDTO extends BaseDTO {
         this.lastName = lastName;
     }
 
-    public int getMlbamId() {
+    public String getMlbamId() {
         return mlbamId;
     }
 
-    public void setMlbamId(int mlbamId) {
+    public void setMlbamId(String mlbamId) {
         this.mlbamId = mlbamId;
     }
 
@@ -351,11 +360,11 @@ public class LineupDTO extends BaseDTO {
         this.unitOfWeight = unitOfWeight;
     }
 
-    public String getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
@@ -389,13 +398,5 @@ public class LineupDTO extends BaseDTO {
 
     public void setTeamId(String teamId) {
         this.teamId = teamId;
-    }
-
-    public String getDraftOverallPick() {
-        return draftOverallPick;
-    }
-
-    public void setDraftOverallPick(String draftOverallPick) {
-        this.draftOverallPick = draftOverallPick;
     }
 }

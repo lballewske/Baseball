@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class LogDTO {
+public class LogDTO extends BaseDTO {
     @JsonProperty("id")
     private String id;
     @JsonProperty("created at")

@@ -9,7 +9,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 //https://api.stattleship.com/baseball/mlb/games?season_id=mlb-2018
 
 @XmlRootElement
-public class GameDTO {
+public class GameDTO extends BaseDTO {
 
     @JsonProperty("id")
     private String id;

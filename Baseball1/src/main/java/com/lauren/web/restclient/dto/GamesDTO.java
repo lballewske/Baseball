@@ -3,7 +3,7 @@ package com.lauren.web.restclient.dto;
 import java.util.List;
 
 
-public class GamesDTO {
+public class GamesDTO extends BaseDTO {
     private List<GameDTO> games;
 
     public List<GameDTO> getGames() {
