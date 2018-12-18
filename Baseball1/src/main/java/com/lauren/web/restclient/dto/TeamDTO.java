@@ -18,11 +18,11 @@ public class TeamDTO {
 //    @JsonProperty("color"): //"BD3039"
 //    private String color; //because we're getting a String here, I'll have to use color.decode to convert to RBG value
     @JsonProperty("colors")
-    private Array colors; //this one returns all of the official colors in an array
+    private String[] colors; //this one returns all of the official colors in an array
     @JsonProperty("hashtag")
     private String hashtag;
     @JsonProperty("hashtags")
-    private String hashtags;
+    private String[] hashtags;
     @JsonProperty("location")
 //    private String location;
 //    @JsonProperty("name")
@@ -80,11 +80,11 @@ public class TeamDTO {
 //        this.color = color;
 //    }
 
-    public Array getColors() {
+    public String[] getColors() {
         return colors;
     }
 
-    public void setColors(Array colors) {
+    public void setColors(String[] colors) {
         this.colors = colors;
     }
 
@@ -96,11 +96,11 @@ public class TeamDTO {
         this.hashtag = hastag;
     }
 
-    public String getHashtags() {
+    public String[] getHashtags() {
         return hashtags;
     }
 
-    public void setHashtags(String hashtags) {
+    public void setHashtags(String[] hashtags) {
         this.hashtags = hashtags;
     }
 

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="mlb_teams")
-public class Team {
+public class Team extends BaseDAO {
     private int teamId;
     private String teamName;
     private String abbreviation;

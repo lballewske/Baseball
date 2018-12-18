@@ -13,4 +13,9 @@ public class PersistenceManager {
         Query query = session.createQuery("from " + entityClass.getName());
         return query.list();
     }
+
+    public static void persist(Object entity) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.persist(entity);
+    }
 }

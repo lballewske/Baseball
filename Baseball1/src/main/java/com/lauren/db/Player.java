@@ -1,6 +1,6 @@
 package com.lauren.db;
 
-public class Players {
+public class Player {
     private String playerName;
     private int playerID;
     private String position;

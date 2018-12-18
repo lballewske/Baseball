@@ -10,16 +10,7 @@ import net.sourceforge.stripes.action.ForwardResolution;
 import net.sourceforge.stripes.action.Resolution;
 
 
-public class ListTeamsActionBean implements ActionBean {
-    private ActionBeanContext context;
-    public void setContext(ActionBeanContext actionBeanContext) {
-        context = actionBeanContext;
-    }
-
-    public ActionBeanContext getContext() {
-        return context;
-    }
-
+public class ListTeamsActionBean extends BaseActionBean {
     @DefaultHandler
     public Resolution teams() {
         List teams = PersistenceManager.findAll(Team.class);

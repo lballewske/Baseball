@@ -1,33 +1,33 @@
-package com.lauren.web.restclient.dto;
+package com.lauren.db;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
+import javax.persistence.*;
 import java.util.Date;
 
-//https://api.stattleship.com/baseball/mlb/teams
-
-public class LeagueDTO extends BaseDTO {
-    @JsonProperty("id")
+@Entity
+@Table(name="Leagues")
+public class League extends BaseDAO {
+    private int id;
     private String externalId;
-    @JsonProperty("created_at")
     private Date createdAt;
-    @JsonProperty("updated_at")
     private Date updatedAt;
-    @JsonProperty("abbreviation")
     private String abbreviation;
-    @JsonProperty("color")
-    private String color;
-    @JsonProperty("minutes_per_period")
-    private double minutesPerPeriod;
-    @JsonProperty("name")
     private String name;
-    @JsonProperty("periods")
     private double periods;
-    @JsonProperty("slug")
     private String slug;
-    @JsonProperty("sport")
     private String sport;
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="id", nullable=false)
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Column(name="external_id", nullable=false)
     public String getExternalId() {
         return externalId;
     }
@@ -36,6 +36,7 @@ public class LeagueDTO extends BaseDTO {
         this.externalId = externalId;
     }
 
+    @Column(name="created_at", nullable=false)
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -44,6 +45,7 @@ public class LeagueDTO extends BaseDTO {
         this.createdAt = createdAt;
     }
 
+    @Column(name="updated_at", nullable=false)
     public Date getUpdatedAt() {
         return updatedAt;
     }
@@ -52,6 +54,7 @@ public class LeagueDTO extends BaseDTO {
         this.updatedAt = updatedAt;
     }
 
+    @Column(name="abbreviatioin", nullable=false)
     public String getAbbreviation() {
         return abbreviation;
     }
@@ -60,22 +63,7 @@ public class LeagueDTO extends BaseDTO {
         this.abbreviation = abbreviation;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public double getMinutesPerPeriod() {
-        return minutesPerPeriod;
-    }
-
-    public void setMinutesPerPeriod(double minutesPerPeriod) {
-        this.minutesPerPeriod = minutesPerPeriod;
-    }
-
+    @Column(name="name", nullable=false)
     public String getName() {
         return name;
     }
@@ -84,6 +72,7 @@ public class LeagueDTO extends BaseDTO {
         this.name = name;
     }
 
+    @Column(name="periods", nullable=false)
     public double getPeriods() {
         return periods;
     }
@@ -92,6 +81,7 @@ public class LeagueDTO extends BaseDTO {
         this.periods = periods;
     }
 
+    @Column(name="slug", nullable=false)
     public String getSlug() {
         return slug;
     }
@@ -100,6 +90,7 @@ public class LeagueDTO extends BaseDTO {
         this.slug = slug;
     }
 
+    @Column(name="sport", nullable=false)
     public String getSport() {
         return sport;
     }
@@ -107,4 +98,6 @@ public class LeagueDTO extends BaseDTO {
     public void setSport(String sport) {
         this.sport = sport;
     }
+
+
 }

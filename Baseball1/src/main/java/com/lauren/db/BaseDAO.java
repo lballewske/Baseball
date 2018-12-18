@@ -1,4 +1,4 @@
 package com.lauren.db;
 
-public class Teams {
+public class BaseDAO {
 }
