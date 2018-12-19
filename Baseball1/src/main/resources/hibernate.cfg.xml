@@ -20,6 +20,8 @@
 
 
         <mapping class="com.lauren.db.Team"/>
+        <mapping class="com.lauren.db.League"/>
+
 
     </session-factory>
 </hibernate-configuration>

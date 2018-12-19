@@ -39,6 +39,6 @@ public class TeamImportActionBean extends BaseActionBean {
             e.printStackTrace();
             return new ErrorResolution(500, e.getMessage());
         }
-        return new StreamingResolution("text/plain");
+        return new StreamingResolution("text/plain", "OK");
     }
 }
