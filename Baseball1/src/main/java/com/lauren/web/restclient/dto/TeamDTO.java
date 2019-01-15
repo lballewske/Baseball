@@ -2,13 +2,11 @@ package com.lauren.web.restclient.dto;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
-import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.Date;
 
 public class TeamDTO {
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("external_id")
+    private String externalId;
     @JsonProperty("created_at")
     private Date createdAt;
     @JsonProperty("updated_at")
@@ -23,16 +21,16 @@ public class TeamDTO {
     private String hashtag;
     @JsonProperty("hashtags")
     private String[] hashtags;
-    @JsonProperty("location")
+//    @JsonProperty("location")
 //    private String location;
-//    @JsonProperty("name")
+    @JsonProperty("name")
     private String name;
     @JsonProperty("nickname")
     private String nickname;
     @JsonProperty("latitude")
-    private double lattitude;
+    private float lattitude;
     @JsonProperty("longitude")
-    private double longitude;
+    private float longitude;
     @JsonProperty("slug")
     private String slug;
     @JsonProperty("division_id")
@@ -40,12 +38,12 @@ public class TeamDTO {
     @JsonProperty("league_id")
     private String leagueId;
 
-    public String getId() {
-        return id;
+    public String getExternalId() {
+        return externalId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
     }
 
     public Date getCreatedAt() {
@@ -128,19 +126,19 @@ public class TeamDTO {
         this.nickname = nickname;
     }
 
-    public double getLattitude() {
+    public float getLattitude() {
         return lattitude;
     }
 
-    public void setLattitude(double lattitude) {
+    public void setLattitude(float lattitude) {
         this.lattitude = lattitude;
     }
 
-    public double getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 

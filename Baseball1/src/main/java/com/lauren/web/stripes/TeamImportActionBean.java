@@ -2,10 +2,7 @@ package com.lauren.web.stripes;
 
 import com.lauren.db.*;
 import com.lauren.web.restclient.RestClient;
-import com.lauren.web.restclient.dto.ConferenceDTO;
-import com.lauren.web.restclient.dto.DivisionDTO;
-import com.lauren.web.restclient.dto.LeagueDTO;
-import com.lauren.web.restclient.dto.TeamsDTO;
+import com.lauren.web.restclient.dto.*;
 import net.sourceforge.stripes.action.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -71,6 +68,23 @@ public class TeamImportActionBean extends BaseActionBean {
                 }
             }
 
+            for (TeamDTO team: teams.getTeams()) {
+                Transaction tx=null;
+                try {
+                    tx = newSession.beginTransaction();
+                    insertTeam(newSession, team);
+
+                    tx.commit();
+                }
+                catch (Exception e) {
+                    if (tx!=null) tx.rollback();
+                    throw e;
+                }
+                finally {
+                    newSession.close();
+                }
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
             return new ErrorResolution(500, e.getMessage());
@@ -109,5 +123,25 @@ public class TeamImportActionBean extends BaseActionBean {
         divisionEntity.setName(division.getName());
         divisionEntity.setConferenceId(division.getConferenceId());
         newSession.saveOrUpdate(divisionEntity);
+    }
+
+    private void insertTeam(Session newSession, TeamDTO team) {
+        Team teamEntity = new Team();
+        teamEntity.setExternalId(team.getExternalId());
+        teamEntity.setCreatedAt(team.getCreatedAt());
+        teamEntity.setUpdatedAt(team.getUpdatedAt());
+        teamEntity.setAbbreviation(team.getAbbreviation());
+        teamEntity.setColors(team.getColors());
+        teamEntity.setHashtag(team.getHastag());
+        teamEntity.setHashtags(team.getHashtags());
+        teamEntity.setName(team.getName());
+        teamEntity.setNickname(team.getNickname());
+        teamEntity.setLattitude(team.getLattitude());
+        teamEntity.setLongitude(team.getLongitude());
+        teamEntity.setSlug(team.getSlug());
+        teamEntity.setDvisionId(team.getDvisionId());
+        teamEntity.setLeagueId(team.getLeagueId());
+        newSession.saveOrUpdate(teamEntity);
+
     }
 }

@@ -7,7 +7,7 @@ import java.util.Date;
 //https://api.stattleship.com/baseball/mlb/teams
 
 public class DivisionDTO extends BaseDTO {
-    @JsonProperty("id")
+    @JsonProperty("external_id")
     private String externalId;
     @JsonProperty("created_at") // "2016-03-18T20:56:44-04:00"
     private Date createdAt;
