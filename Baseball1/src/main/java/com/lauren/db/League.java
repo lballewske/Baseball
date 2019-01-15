@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name="Leagues")
-public class League extends BaseDAO {
+public class League extends BaseEntity {
     private int id;
     private String externalId;
     private Date createdAt;
@@ -54,7 +54,7 @@ public class League extends BaseDAO {
         this.updatedAt = updatedAt;
     }
 
-    @Column(name="abbreviatioin", nullable=false)
+    @Column(name="abbreviation", nullable=false)
     public String getAbbreviation() {
         return abbreviation;
     }

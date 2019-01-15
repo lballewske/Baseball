@@ -1,4 +1,4 @@
 package com.lauren.db;
 
-public class BaseDAO {
+public class BaseEntity {
 }

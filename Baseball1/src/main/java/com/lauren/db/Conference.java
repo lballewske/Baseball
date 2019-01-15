@@ -1,28 +1,40 @@
-package com.lauren.web.restclient.dto;
+package com.lauren.db;
 
-
-import org.codehaus.jackson.annotate.JsonProperty;
-
+import javax.persistence.*;
 import java.util.Date;
 
-//https://api.stattleship.com/baseball/mlb/teams
-
-public class ConferenceDTO extends BaseDTO {
-    @JsonProperty("id")
+@Entity
+@Table(name="conferences")
+public class Conference extends BaseEntity {
+    private int id;
     private String externalId;
-    @JsonProperty("created_at")
     private Date createdAt;
-    @JsonProperty("updated_at")
     private Date updatedAt;
-    @JsonProperty("name")
     private String name;
-    @JsonProperty("league_id")
     private String leagueId;
 
-    public String getExternalId() { return externalId; }
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="id", nullable=false)
+    public int getId() {
+        return id;
+    }
 
-    public void setExternalId(String externalId) { this.externalId = externalId; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    @Column(name="external_id", nullable=false)
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+
+    @Column(name="created_at", nullable=false)
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -31,6 +43,7 @@ public class ConferenceDTO extends BaseDTO {
         this.createdAt = createdAt;
     }
 
+    @Column(name="updated_at")
     public Date getUpdatedAt() {
         return updatedAt;
     }
@@ -39,6 +52,7 @@ public class ConferenceDTO extends BaseDTO {
         this.updatedAt = updatedAt;
     }
 
+    @Column(name="name", nullable=false)
     public String getName() {
         return name;
     }
@@ -47,6 +61,7 @@ public class ConferenceDTO extends BaseDTO {
         this.name = name;
     }
 
+    @Column(name="league_id", nullable=false)
     public String getLeagueId() {
         return leagueId;
     }
