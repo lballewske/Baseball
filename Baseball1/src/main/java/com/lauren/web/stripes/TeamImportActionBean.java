@@ -3,6 +3,7 @@ package com.lauren.web.stripes;
 import com.lauren.db.*;
 import com.lauren.web.restclient.RestClient;
 import com.lauren.web.restclient.dto.ConferenceDTO;
+import com.lauren.web.restclient.dto.DivisionDTO;
 import com.lauren.web.restclient.dto.LeagueDTO;
 import com.lauren.web.restclient.dto.TeamsDTO;
 import net.sourceforge.stripes.action.*;
@@ -53,6 +54,23 @@ public class TeamImportActionBean extends BaseActionBean {
                 }
             }
 
+            for (DivisionDTO division: teams.getDivisions()) {
+                Transaction tx=null;
+                try {
+                    tx = newSession.beginTransaction();
+                    insertDivision(newSession, division);
+
+                    tx.commit();
+                }
+                catch (Exception e) {
+                    if (tx!=null) tx.rollback();
+                    throw e;
+                }
+                finally {
+                    newSession.close();
+                }
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
             return new ErrorResolution(500, e.getMessage());
@@ -81,5 +99,15 @@ public class TeamImportActionBean extends BaseActionBean {
         conferenceEntity.setName(conference.getName());
         conferenceEntity.setLeagueId(conference.getLeagueId());
         newSession.saveOrUpdate(conferenceEntity);
+    }
+
+    private void insertDivision(Session newSession, DivisionDTO division) {
+        Division divisionEntity = new Division();
+        divisionEntity.setExternalId(division.getExternalId());
+        divisionEntity.setCreatedAt(division.getCreatedAt());
+        divisionEntity.setUpdatedAt(division.getUpdatedAt());
+        divisionEntity.setName(division.getName());
+        divisionEntity.setConferenceId(division.getConferenceId());
+        newSession.saveOrUpdate(divisionEntity);
     }
 }
