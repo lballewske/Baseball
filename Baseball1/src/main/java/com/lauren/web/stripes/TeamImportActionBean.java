@@ -4,8 +4,12 @@ import com.lauren.db.*;
 import com.lauren.web.restclient.RestClient;
 import com.lauren.web.restclient.dto.*;
 import net.sourceforge.stripes.action.*;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
+
+import java.util.List;
 
 public class TeamImportActionBean extends BaseActionBean {
     @DefaultHandler
@@ -23,22 +27,9 @@ public class TeamImportActionBean extends BaseActionBean {
                     tx = newSession.beginTransaction();
                     insertLeague(newSession, league);
 
-                    tx.commit();
-                }
-                catch (Exception e) {
-                    if (tx!=null) tx.rollback();
-                    throw e;
-                }
-                finally {
-                    newSession.close();
-                }
-            }
-
-            for (ConferenceDTO conference: teams.getConferences()) {
-                Transaction tx=null;
-                try {
-                    tx = newSession.beginTransaction();
-                    insertConference(newSession, conference);
+                    for (ConferenceDTO conference: teams.getConferences()) {
+                        insertConference(newSession, conference);
+                    }
 
                     tx.commit();
                 }
@@ -51,39 +42,39 @@ public class TeamImportActionBean extends BaseActionBean {
                 }
             }
 
-            for (DivisionDTO division: teams.getDivisions()) {
-                Transaction tx=null;
-                try {
-                    tx = newSession.beginTransaction();
-                    insertDivision(newSession, division);
+//            for (DivisionDTO division: teams.getDivisions()) {
+//                Transaction tx=null;
+//                try {
+//                    tx = newSession.beginTransaction();
+//                    insertDivision(newSession, division);
+//
+//                    tx.commit();
+//                }
+//                catch (Exception e) {
+//                    if (tx!=null) tx.rollback();
+//                    throw e;
+//                }
+//                finally {
+//                    newSession.close();
+//                }
+//            }
 
-                    tx.commit();
-                }
-                catch (Exception e) {
-                    if (tx!=null) tx.rollback();
-                    throw e;
-                }
-                finally {
-                    newSession.close();
-                }
-            }
-
-            for (TeamDTO team: teams.getTeams()) {
-                Transaction tx=null;
-                try {
-                    tx = newSession.beginTransaction();
-                    insertTeam(newSession, team);
-
-                    tx.commit();
-                }
-                catch (Exception e) {
-                    if (tx!=null) tx.rollback();
-                    throw e;
-                }
-                finally {
-                    newSession.close();
-                }
-            }
+//            for (TeamDTO team: teams.getTeams()) {
+//                Transaction tx=null;
+//                try {
+//                    tx = newSession.beginTransaction();
+//                    insertTeam(newSession, team);
+//
+//                    tx.commit();
+//                }
+//                catch (Exception e) {
+//                    if (tx!=null) tx.rollback();
+//                    throw e;
+//                }
+//                finally {
+//                    newSession.close();
+//                }
+//            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,7 +102,10 @@ public class TeamImportActionBean extends BaseActionBean {
         conferenceEntity.setCreatedAt(conference.getCreatedAt());
         conferenceEntity.setUpdatedAt(conference.getUpdatedAt());
         conferenceEntity.setName(conference.getName());
-        conferenceEntity.setLeagueId(conference.getLeagueId());
+        Criteria cr = newSession.createCriteria(League.class);
+        cr.add(Restrictions.eq("externalId", conference.getLeagueId()));
+        League league = (League) cr.uniqueResult();
+        conferenceEntity.setLeague(league);
         newSession.saveOrUpdate(conferenceEntity);
     }
 

@@ -19,6 +19,7 @@
 
         <mapping class="com.lauren.db.Team"/>
         <mapping class="com.lauren.db.League"/>
+        <mapping class="com.lauren.db.Conference"/>
 
 
     </session-factory>

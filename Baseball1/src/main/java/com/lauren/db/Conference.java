@@ -11,7 +11,7 @@ public class Conference extends BaseEntity {
     private Date createdAt;
     private Date updatedAt;
     private String name;
-    private String leagueId;
+    private League league;
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -61,12 +61,13 @@ public class Conference extends BaseEntity {
         this.name = name;
     }
 
-    @Column(name="league_id", nullable=false)
-    public String getLeagueId() {
-        return leagueId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "league_id")
+    public League getLeague() {
+        return league;
     }
 
-    public void setLeagueId(String leagueId) {
-        this.leagueId = leagueId;
+    public void setLeague(League league) {
+        this.league = league;
     }
 }

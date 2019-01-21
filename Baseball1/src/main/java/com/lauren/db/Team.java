@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name="mlb_teams")
+@Table(name="teams")
 public class Team extends BaseEntity {
     private int id;
     private String externalId;
