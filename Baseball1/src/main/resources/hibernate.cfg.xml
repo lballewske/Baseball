@@ -17,9 +17,11 @@
         <property name="show_sql">true</property>
 
 
-        <mapping class="com.lauren.db.Team"/>
+        <!--<mapping class="com.lauren.db.Team"/>-->
         <mapping class="com.lauren.db.League"/>
         <mapping class="com.lauren.db.Conference"/>
+        <mapping class="com.lauren.db.Division"/>
+
 
 
     </session-factory>

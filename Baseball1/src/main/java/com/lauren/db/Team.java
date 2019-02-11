@@ -1,11 +1,6 @@
 package com.lauren.db;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -24,8 +19,8 @@ public class Team extends BaseEntity {
     private float lattitude;
     private float longitude;
     private String slug;
-    private String dvisionId;
-    private String leagueId;
+    private Division division;
+    private League league;
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -37,6 +32,7 @@ public class Team extends BaseEntity {
     public void setId(int id) {
         this.id = id;
     }
+
     @Column(name="external_id", nullable=false)
     public String getExternalId() {
         return externalId;
@@ -145,23 +141,17 @@ public class Team extends BaseEntity {
         this.slug = slug;
     }
 
-    @Column(name="division_id", nullable=false)
-    public String getDvisionId() {
-        return dvisionId;
-    }
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "division_id")
+    public Division getDivision() { return division; }
 
-    public void setDvisionId(String dvisionId) {
-        this.dvisionId = dvisionId;
-    }
+    public void setDivision(Division division) { this.division = division; }
 
-    @Column(name="league_id", nullable=false)
-    public String getLeagueId() {
-        return leagueId;
-    }
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "league_id")
+    public League getLeague() { return league; }
 
-    public void setLeagueId(String leagueId) {
-        this.leagueId = leagueId;
-    }
+    public void setLeague(League league) { this.league = league; }
 }
 
 

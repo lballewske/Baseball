@@ -9,8 +9,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
-import java.util.List;
-
 public class TeamImportActionBean extends BaseActionBean {
     @DefaultHandler
     public Resolution DisplayImportPage () {
@@ -30,6 +28,14 @@ public class TeamImportActionBean extends BaseActionBean {
                     for (ConferenceDTO conference: teams.getConferences()) {
                         insertConference(newSession, conference);
                     }
+
+                    for (DivisionDTO division: teams.getDivisions()) {
+                        insertDivision(newSession, division);
+                    }
+
+//                    for (TeamDTO team: teams.getTeams()) {
+//                        insertTeam(newSession, team);
+//                    }
 
                     tx.commit();
                 }
@@ -115,27 +121,36 @@ public class TeamImportActionBean extends BaseActionBean {
         divisionEntity.setCreatedAt(division.getCreatedAt());
         divisionEntity.setUpdatedAt(division.getUpdatedAt());
         divisionEntity.setName(division.getName());
-        divisionEntity.setConferenceId(division.getConferenceId());
+        Criteria cr = newSession.createCriteria(Conference.class);
+        cr.add(Restrictions.eq("externalId", division.getConferenceId()));
+        Conference conference = (Conference) cr.uniqueResult();
+        divisionEntity.setConference(conference);
         newSession.saveOrUpdate(divisionEntity);
     }
 
-    private void insertTeam(Session newSession, TeamDTO team) {
-        Team teamEntity = new Team();
-        teamEntity.setExternalId(team.getExternalId());
-        teamEntity.setCreatedAt(team.getCreatedAt());
-        teamEntity.setUpdatedAt(team.getUpdatedAt());
-        teamEntity.setAbbreviation(team.getAbbreviation());
-        teamEntity.setColors(team.getColors());
-        teamEntity.setHashtag(team.getHastag());
-        teamEntity.setHashtags(team.getHashtags());
-        teamEntity.setName(team.getName());
-        teamEntity.setNickname(team.getNickname());
-        teamEntity.setLattitude(team.getLattitude());
-        teamEntity.setLongitude(team.getLongitude());
-        teamEntity.setSlug(team.getSlug());
-        teamEntity.setDvisionId(team.getDvisionId());
-        teamEntity.setLeagueId(team.getLeagueId());
-        newSession.saveOrUpdate(teamEntity);
-
-    }
+//    private void insertTeam(Session newSession, TeamDTO team) {
+//        Team teamEntity = new Team();
+//        teamEntity.setExternalId(team.getExternalId());
+//        teamEntity.setCreatedAt(team.getCreatedAt());
+//        teamEntity.setUpdatedAt(team.getUpdatedAt());
+//        teamEntity.setAbbreviation(team.getAbbreviation());
+//        teamEntity.setColors(team.getColors());
+//        teamEntity.setHashtag(team.getHastag());
+//        teamEntity.setHashtags(team.getHashtags());
+//        teamEntity.setName(team.getName());
+//        teamEntity.setNickname(team.getNickname());
+//        teamEntity.setLattitude(team.getLattitude());
+//        teamEntity.setLongitude(team.getLongitude());
+//        teamEntity.setSlug(team.getSlug());
+//        Criteria cr = newSession.createCriteria(Team.class);
+//        cr.add(Restrictions.eq("externalId", team.getDivisionId()));
+//        Division division = (Division) cr.uniqueResult();
+//        teamEntity.setDivision(division);
+//        //Criteria cri = newSession.createCriteria(Team.class);
+//        cr.add(Restrictions.eq("externalId", team.getLeagueId()));
+//        League league = (League) cr.uniqueResult();
+//        teamEntity.setLeague(league);
+//        newSession.saveOrUpdate(teamEntity);
+//
+//        }
 }

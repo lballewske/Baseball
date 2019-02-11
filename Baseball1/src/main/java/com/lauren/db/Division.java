@@ -10,7 +10,7 @@ public class Division extends BaseEntity {
     private Date createdAt;
     private Date updatedAt;
     private String name;
-    private String conferenceId;
+    private Conference conference;
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -59,12 +59,9 @@ public class Division extends BaseEntity {
         this.name = name;
     }
 
-    @Column(name="conferenceId", nullable=false)
-    public String getConferenceId() {
-        return conferenceId;
-    }
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "conference_id")
+    public Conference getConference() { return conference; }
 
-    public void setConferenceId(String conferenceId) {
-        this.conferenceId = conferenceId;
-    }
+    public void setConference(Conference conference) { this.conference = conference; }
 }

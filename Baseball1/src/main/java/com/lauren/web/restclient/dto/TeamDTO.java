@@ -4,8 +4,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.util.Date;
 
-public class TeamDTO {
-    @JsonProperty("external_id")
+public class TeamDTO extends BaseDTO{
+    @JsonProperty("id")
     private String externalId;
     @JsonProperty("created_at")
     private Date createdAt;
@@ -34,7 +34,7 @@ public class TeamDTO {
     @JsonProperty("slug")
     private String slug;
     @JsonProperty("division_id")
-    private String dvisionId;
+    private String divisionId;
     @JsonProperty("league_id")
     private String leagueId;
 
@@ -150,13 +150,9 @@ public class TeamDTO {
         this.slug = slug;
     }
 
-    public String getDvisionId() {
-        return dvisionId;
-    }
+    public String getDivisionId() { return divisionId; }
 
-    public void setDvisionId(String dvisionId) {
-        this.dvisionId = dvisionId;
-    }
+    public void setDivisionId(String divisionId) { this.divisionId = divisionId; }
 
     public String getLeagueId() {
         return leagueId;

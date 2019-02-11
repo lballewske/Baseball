@@ -1,7 +1,7 @@
 package com.lauren.db;
 
 public class Game {
-    private String homeTaamId;
+    private String homeTeamId;
     private String awayTeamId;
     private String location;
     private String winningTeamId;
@@ -15,12 +15,12 @@ public class Game {
         this.gameDate = gameDate;
     }
 
-    public String getHomeTaamId() {
-        return homeTaamId;
+    public String getHomeTeamId() {
+        return homeTeamId;
     }
 
-    public void setHomeTaamId(String homeTaamId) {
-        this.homeTaamId = homeTaamId;
+    public void setHomeTeamId(String homeTeamId) {
+        this.homeTeamId = homeTeamId;
     }
 
     public String getAwayTeamId() {
