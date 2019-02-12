@@ -10,11 +10,11 @@
 <td> abbreviation
 </td>
 </tr>
-<c:forEach items='${teams}' var="team">
+<c:forEach items='${team}' var="teams">
 <tr>
-<td> ${team.teamId}
+<td> ${team.id}
 </td>
-<td> ${team.teamName}
+<td> ${team.name}
 </td>
 <td> ${team.abbreviation}
 </td>

@@ -33,9 +33,9 @@ public class TeamImportActionBean extends BaseActionBean {
                         insertDivision(newSession, division);
                     }
 
-//                    for (TeamDTO team: teams.getTeams()) {
-//                        insertTeam(newSession, team);
-//                    }
+                    for (TeamDTO team: teams.getTeams()) {
+                        insertTeam(newSession, team);
+                    }
 
                     tx.commit();
                 }
@@ -128,29 +128,29 @@ public class TeamImportActionBean extends BaseActionBean {
         newSession.saveOrUpdate(divisionEntity);
     }
 
-//    private void insertTeam(Session newSession, TeamDTO team) {
-//        Team teamEntity = new Team();
-//        teamEntity.setExternalId(team.getExternalId());
-//        teamEntity.setCreatedAt(team.getCreatedAt());
-//        teamEntity.setUpdatedAt(team.getUpdatedAt());
-//        teamEntity.setAbbreviation(team.getAbbreviation());
-//        teamEntity.setColors(team.getColors());
-//        teamEntity.setHashtag(team.getHastag());
-//        teamEntity.setHashtags(team.getHashtags());
-//        teamEntity.setName(team.getName());
-//        teamEntity.setNickname(team.getNickname());
-//        teamEntity.setLattitude(team.getLattitude());
-//        teamEntity.setLongitude(team.getLongitude());
-//        teamEntity.setSlug(team.getSlug());
-//        Criteria cr = newSession.createCriteria(Team.class);
-//        cr.add(Restrictions.eq("externalId", team.getDivisionId()));
-//        Division division = (Division) cr.uniqueResult();
-//        teamEntity.setDivision(division);
-//        //Criteria cri = newSession.createCriteria(Team.class);
+    private void insertTeam(Session newSession, TeamDTO team) {
+        Team teamEntity = new Team();
+        teamEntity.setExternalId(team.getExternalId());
+        teamEntity.setCreatedAt(team.getCreatedAt());
+        teamEntity.setUpdatedAt(team.getUpdatedAt());
+        teamEntity.setAbbreviation(team.getAbbreviation());
+        teamEntity.setColors(team.getColors());
+        teamEntity.setHashtag(team.getHastag());
+        teamEntity.setHashtags(team.getHashtags());
+        teamEntity.setName(team.getName());
+        teamEntity.setNickname(team.getNickname());
+        teamEntity.setLattitude(team.getLattitude());
+        teamEntity.setLongitude(team.getLongitude());
+        teamEntity.setSlug(team.getSlug());
+        Criteria cr = newSession.createCriteria(Team.class);
+        cr.add(Restrictions.eq("externalId", team.getDivisionId()));
+        Division division = (Division) cr.uniqueResult();
+        teamEntity.setDivision(division);
+        //Criteria cri = newSession.createCriteria(Team.class);
 //        cr.add(Restrictions.eq("externalId", team.getLeagueId()));
 //        League league = (League) cr.uniqueResult();
 //        teamEntity.setLeague(league);
-//        newSession.saveOrUpdate(teamEntity);
-//
-//        }
+        newSession.saveOrUpdate(teamEntity);
+
+        }
 }

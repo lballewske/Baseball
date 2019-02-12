@@ -35,8 +35,8 @@ public class TeamDTO extends BaseDTO{
     private String slug;
     @JsonProperty("division_id")
     private String divisionId;
-    @JsonProperty("league_id")
-    private String leagueId;
+//    @JsonProperty("league_id")
+//    private String leagueId;
 
     public String getExternalId() {
         return externalId;
@@ -154,11 +154,11 @@ public class TeamDTO extends BaseDTO{
 
     public void setDivisionId(String divisionId) { this.divisionId = divisionId; }
 
-    public String getLeagueId() {
-        return leagueId;
-    }
-
-    public void setLeagueId(String leagueId) {
-        this.leagueId = leagueId;
-    }
+//    public String getLeagueId() {
+//        return leagueId;
+//    }
+//
+//    public void setLeagueId(String leagueId) {
+//        this.leagueId = leagueId;
+//    }
 }

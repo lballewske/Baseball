@@ -12,7 +12,7 @@ import net.sourceforge.stripes.action.Resolution;
 
 public class ListTeamsActionBean extends BaseActionBean {
     @DefaultHandler
-    public Resolution teams() {
+    public Resolution team() {
         List teams = PersistenceManager.findAll(Team.class);
         context.getRequest().setAttribute("teams", teams);
                 return new ForwardResolution("listteams.jsp");
