@@ -142,14 +142,14 @@ public class TeamImportActionBean extends BaseActionBean {
         teamEntity.setLattitude(team.getLattitude());
         teamEntity.setLongitude(team.getLongitude());
         teamEntity.setSlug(team.getSlug());
-        Criteria cr = newSession.createCriteria(Team.class);
+        Criteria cr = newSession.createCriteria(Division.class);
         cr.add(Restrictions.eq("externalId", team.getDivisionId()));
         Division division = (Division) cr.uniqueResult();
         teamEntity.setDivision(division);
-        //Criteria cri = newSession.createCriteria(Team.class);
-//        cr.add(Restrictions.eq("externalId", team.getLeagueId()));
-//        League league = (League) cr.uniqueResult();
-//        teamEntity.setLeague(league);
+        Criteria cri = newSession.createCriteria(League.class);
+        cri.add(Restrictions.eq("externalId", team.getLeagueId()));
+        League league = (League) cri.uniqueResult();
+        teamEntity.setLeague(league);
         newSession.saveOrUpdate(teamEntity);
 
         }

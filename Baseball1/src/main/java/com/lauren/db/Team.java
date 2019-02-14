@@ -20,7 +20,7 @@ public class Team extends BaseEntity {
     private float longitude;
     private String slug;
     private Division division;
-//    private League league;
+    private League league;
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -147,11 +147,11 @@ public class Team extends BaseEntity {
 
     public void setDivision(Division division) { this.division = division; }
 
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "league_id")
-//    public League getLeague() { return league; }
-//
-//    public void setLeague(League league) { this.league = league; }
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "league_id")
+    public League getLeague() { return league; }
+
+    public void setLeague(League league) { this.league = league; }
 }
 
 
