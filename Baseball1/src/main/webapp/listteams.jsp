@@ -14,7 +14,7 @@
 <tr>
 <td> ${team.id}
 </td>
-<td> ${team.name}
+<td> ${team.name} ${team.nickname}
 </td>
 <td> ${team.abbreviation}
 </td>

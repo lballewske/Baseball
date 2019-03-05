@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class PlayerDTO extends BaseDTO {
     @JsonProperty("id")
-    private String id;
+    private String externalId;
     @JsonProperty("created_at")
     private Date createdAt;
     @JsonProperty("updated_at")
@@ -88,13 +88,9 @@ public class PlayerDTO extends BaseDTO {
     @JsonProperty("team_id")
     private String teamId;
 
-    public String getId() {
-        return id;
-    }
+    public String getExternalId() { return externalId; }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public void setExternalId(String externalId) { this.externalId = externalId; }
 
     public Date getCreatedAt() {
         return createdAt;
