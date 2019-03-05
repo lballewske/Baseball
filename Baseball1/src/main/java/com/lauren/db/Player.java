@@ -119,7 +119,7 @@ public class Player extends BaseEntity {
         this.birthDate = birthDate;
     }
 
-    @Column(name = "captain", nullable)
+    @Column(name="captain")
     public String getCaptain() {
         return captain;
     }
@@ -128,7 +128,7 @@ public class Player extends BaseEntity {
         this.captain = captain;
     }
 
-    @Column(name = "city", nullable = false)
+    @Column(name="city", nullable = false)
     public String getCity() {
         return city;
     }
@@ -137,7 +137,7 @@ public class Player extends BaseEntity {
         this.city = city;
     }
 
-    @Column(name = "country", nullable = false)
+    @Column(name="country", nullable = false)
     public String getCountry() {
         return country;
     }
@@ -146,7 +146,7 @@ public class Player extends BaseEntity {
         this.country = country;
     }
 
-    @Column(name = "draft_overall_pick", nullable)
+    @Column(name="draft_overall_pick")
     public int getDraftOverallPick() {
         return draftOverallPick;
     }
@@ -155,7 +155,7 @@ public class Player extends BaseEntity {
         this.draftOverallPick = draftOverallPick;
     }
 
-    @Column(name = "draft_round", nullable)
+    @Column(name="draft_round")
     public int getDraftRound() {
         return draftRound;
     }
@@ -164,7 +164,7 @@ public class Player extends BaseEntity {
         this.draftRound = draftRound;
     }
 
-    @Column(name = "draft_season", nullable)
+    @Column(name="draft_season")
     public Year getDraftSeason() {
         return draftSeason;
     }
@@ -173,7 +173,7 @@ public class Player extends BaseEntity {
         this.draftSeason = draftSeason;
     }
 
-    @Column(name = "draft_team_name", nullable)
+    @Column(name="draft_team_name")
     public String getDraftTeamName() {
         return draftTeamName;
     }
@@ -182,7 +182,7 @@ public class Player extends BaseEntity {
         this.draftTeamName = draftTeamName;
     }
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name="first_name", nullable = false)
     public String getFirstName() {
         return firstName;
     }
@@ -191,7 +191,7 @@ public class Player extends BaseEntity {
         this.firstName = firstName;
     }
 
-    @Column(name = "handedness", nullable = false)
+    @Column(name="handedness", nullable = false)
     public String getHandedness() {
         return handedness;
     }
@@ -200,7 +200,7 @@ public class Player extends BaseEntity {
         this.handedness = handedness;
     }
 
-    @Column(name = "height", nullable = false)
+    @Column(name="height", nullable = false)
     public int getHeight() {
         return height;
     }
@@ -209,7 +209,7 @@ public class Player extends BaseEntity {
         this.height = height;
     }
 
-    @Column(name = "high_school", nullable)
+    @Column(name="high_school")
     public String getHighSchool() {
         return highSchool;
     }
@@ -218,7 +218,7 @@ public class Player extends BaseEntity {
         this.highSchool = highSchool;
     }
 
-    @Column(name = "humanized_salary", nullable)
+    @Column(name="humanized_salary")
     public float getHumanizedSalary() {
         return humanizedSalary;
     }
@@ -227,7 +227,7 @@ public class Player extends BaseEntity {
         this.humanizedSalary = humanizedSalary;
     }
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name="last_name", nullable = false)
     public String getLastName() {
         return lastName;
     }
@@ -236,7 +236,7 @@ public class Player extends BaseEntity {
         this.lastName = lastName;
     }
 
-    @Column(name = "mlbam_id", nullable)
+    @Column(name="mlbam_id")
     public int getMlbam_id() {
         return mlbam_id;
     }
@@ -245,7 +245,7 @@ public class Player extends BaseEntity {
         this.mlbam_id = mlbam_id;
     }
 
-    @Column(name = "name", nullable = false)
+    @Column(name="name", nullable = false)
     public String getName() {
         return name;
     }
@@ -254,7 +254,7 @@ public class Player extends BaseEntity {
         this.name = name;
     }
 
-    @Column(name = "nickname", nullable)
+    @Column(name="nickname")
     public String getNickname() {
         return nickname;
     }
@@ -263,7 +263,7 @@ public class Player extends BaseEntity {
         this.nickname = nickname;
     }
 
-    @Column(name = "position_abbreviation", nullable = false)
+    @Column(name="position_abbreviation", nullable = false)
     public String getPositionAbbreviation() {
         return positionAbbreviation;
     }
@@ -272,7 +272,7 @@ public class Player extends BaseEntity {
         this.positionAbbreviation = positionAbbreviation;
     }
 
-    @Column(name = "position_name", nullable = false)
+    @Column(name="position_name", nullable = false)
     public String getPositionName() {
         return positionName;
     }
@@ -281,7 +281,7 @@ public class Player extends BaseEntity {
         this.positionName = positionName;
     }
 
-    @Column(name = "pro_debut", nullable)
+    @Column(name="pro_debut")
     public Date getProDebut() {
         return proDebut;
     }
@@ -290,7 +290,7 @@ public class Player extends BaseEntity {
         this.proDebut = proDebut;
     }
 
-    @Column(name = "salary", nullable)
+    @Column(name="salary")
     public float getSalary() {
         return Salary;
     }
@@ -299,7 +299,7 @@ public class Player extends BaseEntity {
         Salary = salary;
     }
 
-    @Column(name = "salary_currency", nullable)
+    @Column(name="salary_currency")
     public String getSalaryCurrency() {
         return salaryCurrency;
     }
@@ -308,7 +308,7 @@ public class Player extends BaseEntity {
         this.salaryCurrency = salaryCurrency;
     }
 
-    @Column(name = "school", nullable)
+    @Column(name="school")
     public String getSchool() {
         return school;
     }
@@ -317,7 +317,7 @@ public class Player extends BaseEntity {
         this.school = school;
     }
 
-    @Column(name = "slug", nullable = false)
+    @Column(name="slug", nullable = false)
     public String getSlug() {
         return slug;
     }
@@ -326,7 +326,7 @@ public class Player extends BaseEntity {
         this.slug = slug;
     }
 
-    @Column(name = "sport", nullable = false)
+    @Column(name="sport", nullable = false)
     public String getSport() {
         return sport;
     }
@@ -335,7 +335,7 @@ public class Player extends BaseEntity {
         this.sport = sport;
     }
 
-    @Column(name = "state", nullable)
+    @Column(name="state")
     public String getState() {
         return state;
     }
@@ -344,7 +344,7 @@ public class Player extends BaseEntity {
         this.state = state;
     }
 
-    @Column(name = "uniform_number", nullable)
+    @Column(name="uniform_number")
     public int getUniformNumber() {
         return uniformNumber;
     }
@@ -353,7 +353,7 @@ public class Player extends BaseEntity {
         this.uniformNumber = uniformNumber;
     }
 
-    @Column(name = "unit_of_height", nullable = false)
+    @Column(name="unit_of_height", nullable = false)
     public String getUnitOfHeight() {
         return unitOfHeight;
     }
@@ -362,7 +362,7 @@ public class Player extends BaseEntity {
         this.unitOfHeight = unitOfHeight;
     }
 
-    @Column(name = "unit_of_weight", nullable = false)
+    @Column(name="unit_of_weight", nullable = false)
     public String getUnitOfWeight() {
         return unitOfWeight;
     }
@@ -371,7 +371,7 @@ public class Player extends BaseEntity {
         this.unitOfWeight = unitOfWeight;
     }
 
-    @Column(name = "weight", nullable)
+    @Column(name="weight")
     public int getWeight() {
         return weight;
     }
@@ -380,7 +380,7 @@ public class Player extends BaseEntity {
         this.weight = weight;
     }
 
-    @Column(name = "years_of_experience", nullable)
+    @Column(name="years_of_experience")
     public int getYearsOfExperience() {
         return yearsOfExperience;
     }
@@ -390,7 +390,7 @@ public class Player extends BaseEntity {
     }
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "league_id")
+    @JoinColumn(name="league_id")
     public String getLeagueId() {
         return leagueId;
     }
@@ -399,7 +399,7 @@ public class Player extends BaseEntity {
         this.leagueId = leagueId;
     }
 
-    @Column(name = "playing_position_id", nullable = false)
+    @Column(name="playing_position_id", nullable = false)
     public String getPlayingPositionId() {
         return playingPositionId;
     }
@@ -409,7 +409,7 @@ public class Player extends BaseEntity {
     }
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "team_id")
+    @JoinColumn(name="team_id")
     public String getTeamId() {
         return teamId;
     }
