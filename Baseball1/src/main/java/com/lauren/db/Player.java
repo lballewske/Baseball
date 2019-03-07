@@ -4,7 +4,6 @@ package com.lauren.db;
 
 
 import javax.persistence.*;
-import java.time.Year;
 import java.util.Date;
 
 public class Player extends BaseEntity {
@@ -18,9 +17,9 @@ public class Player extends BaseEntity {
     public String captain; //can be null
     public String city;
     public String country;
-    public int draftOverallPick;
-    public int draftRound;
-    public Year draftSeason;
+    public Integer draftOverallPick;
+    public Integer draftRound;
+    public Integer draftSeason;
     public String draftTeamName;
     public String firstName;
     public String handedness;
@@ -28,7 +27,7 @@ public class Player extends BaseEntity {
     public String highSchool; //can be null
     public float humanizedSalary;
     public String lastName;
-    public int mlbam_id; //cam be null
+    public Integer mlbam_id; //cam be null
     public String name;
     public String nickname;
     public String positionAbbreviation;
@@ -40,11 +39,11 @@ public class Player extends BaseEntity {
     public String slug;
     public String sport;
     public String state;
-    public int uniformNumber;
+    public Integer uniformNumber;
     public String unitOfHeight;
     public String unitOfWeight;
     public int weight;
-    public int yearsOfExperience;
+    public Integer yearsOfExperience;
     public League leagueId;
     public String playingPositionId;
     public Team teamId;
@@ -140,29 +139,29 @@ public class Player extends BaseEntity {
     }
 
     @Column(name="draft_overall_pick")
-    public int getDraftOverallPick() {
+    public Integer getDraftOverallPick() {
         return draftOverallPick;
     }
 
-    public void setDraftOverallPick(int draftOverallPick) {
+    public void setDraftOverallPick(Integer draftOverallPick) {
         this.draftOverallPick = draftOverallPick;
     }
 
     @Column(name="draft_round")
-    public int getDraftRound() {
+    public Integer getDraftRound() {
         return draftRound;
     }
 
-    public void setDraftRound(int draftRound) {
+    public void setDraftRound(Integer draftRound) {
         this.draftRound = draftRound;
     }
 
     @Column(name="draft_season")
-    public Year getDraftSeason() {
+    public Integer getDraftSeason() {
         return draftSeason;
     }
 
-    public void setDraftSeason(Year draftSeason) {
+    public void setDraftSeason(Integer draftSeason) {
         this.draftSeason = draftSeason;
     }
 
@@ -230,11 +229,11 @@ public class Player extends BaseEntity {
     }
 
     @Column(name="mlbam_id")
-    public int getMlbam_id() {
+    public Integer getMlbam_id() {
         return mlbam_id;
     }
 
-    public void setMlbam_id(int mlbam_id) {
+    public void setMlbam_id(Integer mlbam_id) {
         this.mlbam_id = mlbam_id;
     }
 
@@ -338,11 +337,11 @@ public class Player extends BaseEntity {
     }
 
     @Column(name="uniform_number")
-    public int getUniformNumber() {
+    public Integer getUniformNumber() {
         return uniformNumber;
     }
 
-    public void setUniformNumber(int uniformNumber) {
+    public void setUniformNumber(Integer uniformNumber) {
         this.uniformNumber = uniformNumber;
     }
 
@@ -374,11 +373,11 @@ public class Player extends BaseEntity {
     }
 
     @Column(name="years_of_experience")
-    public int getYearsOfExperience() {
+    public Integer getYearsOfExperience() {
         return yearsOfExperience;
     }
 
-    public void setYearsOfExperience(int yearsOfExperience) {
+    public void setYearsOfExperience(Integer yearsOfExperience) {
         this.yearsOfExperience = yearsOfExperience;
     }
 

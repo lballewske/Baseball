@@ -8,17 +8,20 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<stripes:url beanclass="com.lauren.web.stripes.TeamImportActionBean" event="doImport" var="doImportURL">
+<stripes:url beanclass="com.lauren.web.stripes.TeamImportActionBean" event="doImport" var="doTeamImport">
 </stripes:url>
+<stripes:url beanclass="com.lauren.web.stripes.PlayerImportActionBean" event="doImport" var="doPlayerImport"></stripes:url>
+
+
 <head>
     <script src="static/JS/jquery-3.3.1.min.js"></script>
     <title>Team Import</title>
 </head>
 <body>
 <script type="text/javascript">
-    function sendImportRequest() {
+    function sendImportRequest(url) {
         jQuery.ajax({
-            url: '${doImportURL}',
+            url: url,
             type: "GET",
             success: function(data) {
                 alert('Success');
@@ -29,7 +32,10 @@
         });
     }
 </script>
-<button type="button" onclick="sendImportRequest();">Import</button>
+<button type="button" onclick="sendImportRequest('${doTeamImport}');">Team Import</button>
+<br/>
+<button type="button" onclick="sendImportRequest('${doPlayerImport}');">Player Import</button>
+
 
 </body>
 </html>

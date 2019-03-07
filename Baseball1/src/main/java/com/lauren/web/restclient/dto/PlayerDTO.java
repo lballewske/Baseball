@@ -2,7 +2,6 @@ package com.lauren.web.restclient.dto;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
-import java.time.Year;
 import java.util.Date;
 
 //https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2018
@@ -27,11 +26,11 @@ public class PlayerDTO extends BaseDTO {
     @JsonProperty("country")
     private String country;
     @JsonProperty("draft_overall_pick")
-    private int draftOverallPick;
+    private Integer draftOverallPick;
     @JsonProperty("draft_round")
-    private int draftRound;
+    private Integer draftRound;
     @JsonProperty("draft_season")
-    private Year draftSeason;
+    private Integer draftSeason;
     @JsonProperty("draft_team_name")
     private String draftTeamName;
     @JsonProperty("first_name")
@@ -43,11 +42,11 @@ public class PlayerDTO extends BaseDTO {
     @JsonProperty("high_school")
     private String highSchool;
     @JsonProperty("humanized_salary")
-    private float humanizedSalary;
+    private String humanizedSalary;
     @JsonProperty("last_name")
     private String lastName;
     @JsonProperty("mlbam_id")
-    private int mlbam_Id;
+    private Integer mlbam_Id;
     @JsonProperty("name")
     private String name;
     @JsonProperty("nickname")
@@ -59,7 +58,7 @@ public class PlayerDTO extends BaseDTO {
     @JsonProperty("pro_debut")
     private Date proDebut;
     @JsonProperty("salary")
-    private float salary;
+    private String salary;
     @JsonProperty("salary_currency")
     private String salaryCurrency;
     @JsonProperty("school")
@@ -71,7 +70,7 @@ public class PlayerDTO extends BaseDTO {
     @JsonProperty("state")
     private String state;
     @JsonProperty("uniform_number")
-    private int uniformNumber;
+    private Integer uniformNumber;
     @JsonProperty("unit_of_height")
     private String unitOfHeight;
     @JsonProperty("unit_of_weight")
@@ -79,7 +78,7 @@ public class PlayerDTO extends BaseDTO {
     @JsonProperty("weight")
     private int weight;
     @JsonProperty("years_of_experience")
-    private int yearsOfExperience;
+    private Integer yearsOfExperience;
     @JsonProperty("league_id")
     private String leagueId;
     @JsonProperty("playing_position_id")
@@ -155,27 +154,27 @@ public class PlayerDTO extends BaseDTO {
         this.country = country;
     }
 
-    public int getDraftOverallPick() {
+    public Integer getDraftOverallPick() {
         return draftOverallPick;
     }
 
-    public void setDraftOverallPick(int draftOverallPick) {
+    public void setDraftOverallPick(Integer draftOverallPick) {
         this.draftOverallPick = draftOverallPick;
     }
 
-    public int getDraftRound() {
+    public Integer getDraftRound() {
         return draftRound;
     }
 
-    public void setDraftRound(int draftRound) {
+    public void setDraftRound(Integer draftRound) {
         this.draftRound = draftRound;
     }
 
-    public Year getDraftSeason() {
+    public Integer getDraftSeason() {
         return draftSeason;
     }
 
-    public void setDraftSeason(Year draftSeason) {
+    public void setDraftSeason(Integer draftSeason) {
         this.draftSeason = draftSeason;
     }
 
@@ -219,11 +218,11 @@ public class PlayerDTO extends BaseDTO {
         this.highSchool = highSchool;
     }
 
-    public float getHumanizedSalary() {
+    public String getHumanizedSalary() {
         return humanizedSalary;
     }
 
-    public void setHumanizedSalary(float humanizedSalary) {
+    public void setHumanizedSalary(String humanizedSalary) {
         this.humanizedSalary = humanizedSalary;
     }
 
@@ -235,9 +234,9 @@ public class PlayerDTO extends BaseDTO {
         this.lastName = lastName;
     }
 
-    public int getMlbam_Id() { return mlbam_Id; }
+    public Integer getMlbam_Id() { return mlbam_Id; }
 
-    public void setMlbam_Id(int mlbam_Id) { this.mlbam_Id = mlbam_Id; }
+    public void setMlbam_Id(Integer mlbam_Id) { this.mlbam_Id = mlbam_Id; }
 
     public String getName() {
         return name;
@@ -279,11 +278,11 @@ public class PlayerDTO extends BaseDTO {
         this.proDebut = proDebut;
     }
 
-    public float getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(float salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 
@@ -327,11 +326,11 @@ public class PlayerDTO extends BaseDTO {
         this.state = state;
     }
 
-    public int getUniformNumber() {
+    public Integer getUniformNumber() {
         return uniformNumber;
     }
 
-    public void setUniformNumber(int uniformNumber) {
+    public void setUniformNumber(Integer uniformNumber) {
         this.uniformNumber = uniformNumber;
     }
 
@@ -359,11 +358,11 @@ public class PlayerDTO extends BaseDTO {
         this.weight = weight;
     }
 
-    public int getYearsOfExperience() {
+    public Integer getYearsOfExperience() {
         return yearsOfExperience;
     }
 
-    public void setYearsOfExperience(int yearsOfExperience) {
+    public void setYearsOfExperience(Integer yearsOfExperience) {
         this.yearsOfExperience = yearsOfExperience;
     }
 
