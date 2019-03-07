@@ -1,13 +1,10 @@
 package com.lauren.db;
 
 //https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2018
-//This is basically similar to the league/team/division/conference structure, but slightly different because players can be called up
-//whenever and they can play different positions day to day - not quite sure how to handle that so I'm going to hold off on Player stuff
-//which kinda means holding off on everything
+
 
 import javax.persistence.*;
 import java.time.Year;
-import java.util.Currency;
 import java.util.Date;
 
 public class Player extends BaseEntity {
@@ -48,9 +45,9 @@ public class Player extends BaseEntity {
     public String unitOfWeight;
     public int weight;
     public int yearsOfExperience;
-    public String leagueId;
+    public League leagueId;
     public String playingPositionId;
-    public String teamId;
+    public Team teamId;
 
 
     @Id
@@ -93,13 +90,9 @@ public class Player extends BaseEntity {
     }
 
     @Column(name="active", nullable = false)
-    public boolean isActive() {
-        return active;
-    }
+    public boolean isActive() { return active; }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
+    public void setActive(boolean active) { this.active = active; }
 
     @Column(name="bats", nullable = false)
     public String getBats() {
@@ -391,11 +384,11 @@ public class Player extends BaseEntity {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="league_id")
-    public String getLeagueId() {
+    public League getLeagueId() {
         return leagueId;
     }
 
-    public void setLeagueId(String leagueId) {
+    public void setLeagueId(League leagueId) {
         this.leagueId = leagueId;
     }
 
@@ -410,11 +403,11 @@ public class Player extends BaseEntity {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="team_id")
-    public String getTeamId() {
+    public Team getTeamId() {
         return teamId;
     }
 
-    public void setTeamId(String teamId) {
+    public void setTeamId(Team teamId) {
         this.teamId = teamId;
     }
 }

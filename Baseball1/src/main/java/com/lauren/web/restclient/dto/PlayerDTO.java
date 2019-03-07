@@ -3,7 +3,6 @@ package com.lauren.web.restclient.dto;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.time.Year;
-import java.util.Currency;
 import java.util.Date;
 
 //https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2018
@@ -40,15 +39,15 @@ public class PlayerDTO extends BaseDTO {
     @JsonProperty("handedness")
     private String handedness;
     @JsonProperty("height")
-    private double height;
+    private int height;
     @JsonProperty("high_school")
     private String highSchool;
     @JsonProperty("humanized_salary")
-    private double humanizedSalary;
+    private float humanizedSalary;
     @JsonProperty("last_name")
     private String lastName;
     @JsonProperty("mlbam_id")
-    private String mlbamId;
+    private int mlbam_Id;
     @JsonProperty("name")
     private String name;
     @JsonProperty("nickname")
@@ -60,9 +59,9 @@ public class PlayerDTO extends BaseDTO {
     @JsonProperty("pro_debut")
     private Date proDebut;
     @JsonProperty("salary")
-    private double salary;
+    private float salary;
     @JsonProperty("salary_currency")
-    private Currency salaryCurrency;
+    private String salaryCurrency;
     @JsonProperty("school")
     private String school;
     @JsonProperty("slug")
@@ -78,9 +77,9 @@ public class PlayerDTO extends BaseDTO {
     @JsonProperty("unit_of_weight")
     private String unitOfWeight;
     @JsonProperty("weight")
-    private double weight;
+    private int weight;
     @JsonProperty("years_of_experience")
-    private double yearsOfExperience;
+    private int yearsOfExperience;
     @JsonProperty("league_id")
     private String leagueId;
     @JsonProperty("playing_position_id")
@@ -204,11 +203,11 @@ public class PlayerDTO extends BaseDTO {
         this.handedness = handedness;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
@@ -220,11 +219,11 @@ public class PlayerDTO extends BaseDTO {
         this.highSchool = highSchool;
     }
 
-    public double getHumanizedSalary() {
+    public float getHumanizedSalary() {
         return humanizedSalary;
     }
 
-    public void setHumanizedSalary(double humanizedSalary) {
+    public void setHumanizedSalary(float humanizedSalary) {
         this.humanizedSalary = humanizedSalary;
     }
 
@@ -236,13 +235,9 @@ public class PlayerDTO extends BaseDTO {
         this.lastName = lastName;
     }
 
-    public String getMlbamId() {
-        return mlbamId;
-    }
+    public int getMlbam_Id() { return mlbam_Id; }
 
-    public void setMlbamId(String mlbamId) {
-        this.mlbamId = mlbamId;
-    }
+    public void setMlbam_Id(int mlbam_Id) { this.mlbam_Id = mlbam_Id; }
 
     public String getName() {
         return name;
@@ -284,19 +279,19 @@ public class PlayerDTO extends BaseDTO {
         this.proDebut = proDebut;
     }
 
-    public double getSalary() {
+    public float getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(float salary) {
         this.salary = salary;
     }
 
-    public Currency getSalaryCurrency() {
+    public String getSalaryCurrency() {
         return salaryCurrency;
     }
 
-    public void setSalaryCurrency(Currency salaryCurrency) {
+    public void setSalaryCurrency(String salaryCurrency) {
         this.salaryCurrency = salaryCurrency;
     }
 
@@ -356,19 +351,19 @@ public class PlayerDTO extends BaseDTO {
         this.unitOfWeight = unitOfWeight;
     }
 
-    public double getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
-    public double getYearsOfExperience() {
+    public int getYearsOfExperience() {
         return yearsOfExperience;
     }
 
-    public void setYearsOfExperience(double yearsOfExperience) {
+    public void setYearsOfExperience(int yearsOfExperience) {
         this.yearsOfExperience = yearsOfExperience;
     }
 

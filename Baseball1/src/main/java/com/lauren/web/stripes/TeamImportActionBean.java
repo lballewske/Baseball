@@ -48,40 +48,6 @@ public class TeamImportActionBean extends BaseActionBean {
                 }
             }
 
-//            for (DivisionDTO division: teams.getDivisions()) {
-//                Transaction tx=null;
-//                try {
-//                    tx = newSession.beginTransaction();
-//                    insertDivision(newSession, division);
-//
-//                    tx.commit();
-//                }
-//                catch (Exception e) {
-//                    if (tx!=null) tx.rollback();
-//                    throw e;
-//                }
-//                finally {
-//                    newSession.close();
-//                }
-//            }
-
-//            for (TeamDTO team: teams.getTeams()) {
-//                Transaction tx=null;
-//                try {
-//                    tx = newSession.beginTransaction();
-//                    insertTeam(newSession, team);
-//
-//                    tx.commit();
-//                }
-//                catch (Exception e) {
-//                    if (tx!=null) tx.rollback();
-//                    throw e;
-//                }
-//                finally {
-//                    newSession.close();
-//                }
-//            }
-
         } catch (Exception e) {
             e.printStackTrace();
             return new ErrorResolution(500, e.getMessage());
