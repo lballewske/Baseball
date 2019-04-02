@@ -21,6 +21,7 @@
         <mapping class="com.lauren.db.League"/>
         <mapping class="com.lauren.db.Conference"/>
         <mapping class="com.lauren.db.Division"/>
+        <mapping class ="com.lauren.db.Player"/>
 
 
 

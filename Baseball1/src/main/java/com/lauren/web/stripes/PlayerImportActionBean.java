@@ -9,12 +9,14 @@ import com.lauren.web.restclient.dto.PlayerDTO;
 import com.lauren.web.restclient.dto.PlayersDTO;
 import net.sourceforge.stripes.action.*;
 import org.hibernate.Criteria;
+import org.hibernate.FlushMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
+import java.util.List;
 
 public class PlayerImportActionBean extends BaseActionBean {
     @DefaultHandler
@@ -23,27 +25,36 @@ public class PlayerImportActionBean extends BaseActionBean {
     }
 
     public Resolution doImport() {
+        Session newSession = null;
         try {
             RestClient client = new RestClient();
-            PlayersDTO players = client.getRequest("https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2018", PlayersDTO.class);
-            Session newSession = HibernateUtil.getSessionFactory().openSession();
-            for (PlayerDTO player : players.getPlayers()) {
-                Transaction tx = null;
-                try {
-                    tx = newSession.beginTransaction();
-                    insertPlayer(newSession, player);
+            newSession = HibernateUtil.getSessionFactory().openSession();
+            newSession.setFlushMode(FlushMode.MANUAL);
+            List<Team> teamList = newSession.createCriteria(Team.class).list();
+            for (Team team : teamList) {
+                PlayersDTO players = client.getRequest("https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2019&team_id=" + team.getSlug(), PlayersDTO.class);
 
-                    tx.commit();
-                } catch (Exception e) {
-                    if (tx != null) tx.rollback();
-                    throw e;
-                } finally {
-                    newSession.close();
+                for (PlayerDTO player : players.getPlayers()) {
+                    Transaction tx = null;
+                    try {
+                        tx = newSession.beginTransaction();
+                        insertPlayer(newSession, player);
+
+                        tx.commit();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        if (tx != null) tx.rollback();
+                    }
+                    finally {
+                        newSession.flush();
+                    }
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
             return new ErrorResolution(500, e.getMessage());
+        } finally {
+            if (newSession != null) newSession.close();
         }
         return new StreamingResolution("text/plain", "OK");
     }
@@ -57,6 +68,7 @@ public class PlayerImportActionBean extends BaseActionBean {
         playerEntity.setBats(player.getBats());
         playerEntity.setBirthDate(player.getBirthDate());
         playerEntity.setCaptain(player.getCaptain());
+        playerEntity.setCity(player.getCity());
         playerEntity.setCountry(player.getCountry());
         playerEntity.setDraftOverallPick(player.getDraftOverallPick());
         playerEntity.setDraftRound(player.getDraftRound());
@@ -82,7 +94,7 @@ public class PlayerImportActionBean extends BaseActionBean {
         playerEntity.setProDebut(player.getProDebut());
         try {
             playerEntity.setSalary(format.parse(player.getSalary()).floatValue());
-        } catch (ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         playerEntity.setSalaryCurrency(player.getSalaryCurrency());
@@ -103,10 +115,10 @@ public class PlayerImportActionBean extends BaseActionBean {
 
         playerEntity.setPlayingPositionId(player.getPlayingPositionId());
 
-        Criteria playerTeam = newSession.createCriteria(League.class);
+        Criteria playerTeam = newSession.createCriteria(Team.class);
         playerTeam.add(Restrictions.eq("externalId", player.getTeamId()));
         Team pTeam = (Team) playerTeam.uniqueResult();
-        playerEntity.setTeamId(pTeam);
+        playerEntity.setTeam(pTeam);
 
 
         newSession.saveOrUpdate(playerEntity);

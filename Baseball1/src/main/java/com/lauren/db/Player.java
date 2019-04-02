@@ -6,6 +6,8 @@ package com.lauren.db;
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="players")
 public class Player extends BaseEntity {
     public int id;
     public String externalId;
@@ -46,7 +48,7 @@ public class Player extends BaseEntity {
     public Integer yearsOfExperience;
     public League leagueId;
     public String playingPositionId;
-    public Team teamId;
+    public Team team;
 
 
     @Id
@@ -102,7 +104,7 @@ public class Player extends BaseEntity {
         this.bats = bats;
     }
 
-    @Column(name="birth_date", nullable = false)
+    @Column(name="birth_date")
     public Date getBirthDate() {
         return birthDate;
     }
@@ -120,7 +122,7 @@ public class Player extends BaseEntity {
         this.captain = captain;
     }
 
-    @Column(name="city", nullable = false)
+    @Column(name="city")
     public String getCity() {
         return city;
     }
@@ -129,7 +131,7 @@ public class Player extends BaseEntity {
         this.city = city;
     }
 
-    @Column(name="country", nullable = false)
+    @Column(name="country")
     public String getCountry() {
         return country;
     }
@@ -391,7 +393,7 @@ public class Player extends BaseEntity {
         this.leagueId = leagueId;
     }
 
-    @Column(name="playing_position_id", nullable = false)
+    @Column(name="playing_position_id")
     public String getPlayingPositionId() {
         return playingPositionId;
     }
@@ -402,11 +404,11 @@ public class Player extends BaseEntity {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="team_id")
-    public Team getTeamId() {
-        return teamId;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setTeamId(Team teamId) {
-        this.teamId = teamId;
+    public void setTeam(Team teamId) {
+        this.team = teamId;
     }
 }
