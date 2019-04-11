@@ -1,62 +1,37 @@
 package com.lauren.web.stripes;
 
-import com.lauren.db.HibernateUtil;
-import com.lauren.db.League;
 import com.lauren.db.Player;
 import com.lauren.db.Team;
 import com.lauren.web.restclient.RestClient;
 import com.lauren.web.restclient.dto.PlayerDTO;
 import com.lauren.web.restclient.dto.PlayersDTO;
-import net.sourceforge.stripes.action.*;
-import org.hibernate.Criteria;
-import org.hibernate.FlushMode;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
-
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.List;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
-public class PlayerImportActionBean extends BaseActionBean {
-    @DefaultHandler
-    public Resolution DisplayImportPage() {
-        return new ForwardResolution("playerimport.jsp");
+public class PlayerImportActionBean extends BaseImportActionBean {
+
+
+    @Override
+    public String getImportJsp() {
+        return "playerimport.jsp";
     }
 
-    public Resolution doImport() {
-        Session newSession = null;
-        try {
-            RestClient client = new RestClient();
-            newSession = HibernateUtil.getSessionFactory().openSession();
-            newSession.setFlushMode(FlushMode.MANUAL);
-            List<Team> teamList = newSession.createCriteria(Team.class).list();
-            for (Team team : teamList) {
-                PlayersDTO players = client.getRequest("https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2018&team_id=" + team.getSlug(), PlayersDTO.class);
+    @Override
+    @SuppressWarnings("unchecked")
+    void doImportImpl(Session session, RestClient client) throws Exception {
+        List<Team> teamList = session.createCriteria(Team.class).list();
+        for (Team team : teamList) {
+            PlayersDTO players = client.getRequest("https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2018&team_id=" + team.getSlug(), PlayersDTO.class);
 
-                for (PlayerDTO player : players.getPlayers()) {
-                    Transaction tx = null;
-                    try {
-                        tx = newSession.beginTransaction();
-                        savePlayer(newSession, player);
 
-                        tx.commit();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        if (tx != null) tx.rollback();
-                    }
-                    finally {
-                        newSession.flush();
-                    }
-                }
+            for (PlayerDTO player : players.getPlayers()) {
+                doInTransaction(session, () -> savePlayer(session, player));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ErrorResolution(500, e.getMessage());
-        } finally {
-            if (newSession != null) newSession.close();
         }
-        return new StreamingResolution("text/plain", "OK");
     }
 
     private void savePlayer(Session newSession, PlayerDTO player) {

@@ -1,58 +1,52 @@
 package com.lauren.web.stripes;
 
-import com.lauren.db.*;
+import com.lauren.db.Conference;
+import com.lauren.db.Division;
+import com.lauren.db.League;
+import com.lauren.db.Team;
 import com.lauren.web.restclient.RestClient;
-import com.lauren.web.restclient.dto.*;
-import net.sourceforge.stripes.action.*;
+import com.lauren.web.restclient.dto.ConferenceDTO;
+import com.lauren.web.restclient.dto.DivisionDTO;
+import com.lauren.web.restclient.dto.LeagueDTO;
+import com.lauren.web.restclient.dto.TeamDTO;
+import com.lauren.web.restclient.dto.TeamsDTO;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
-public class TeamImportActionBean extends BaseActionBean {
-    @DefaultHandler
-    public Resolution DisplayImportPage () {
-        return new ForwardResolution("teamimport.jsp");
+public class TeamImportActionBean extends BaseImportActionBean {
+
+    @Override
+    public String getImportJsp() {
+        return "teamimport.jsp";
     }
-    public Resolution doImport () {
-        try {
-            RestClient client = new RestClient();
-            TeamsDTO teams = client.getRequest("https://api.stattleship.com/baseball/mlb/teams", TeamsDTO.class);
-            Session newSession = HibernateUtil.getSessionFactory().openSession();
-            for (LeagueDTO league: teams.getLeagues()) {
-                Transaction tx=null;
-                try {
-                    tx = newSession.beginTransaction();
-                    insertLeague(newSession, league);
 
-                    for (ConferenceDTO conference: teams.getConferences()) {
-                        insertConference(newSession, conference);
-                    }
+    @Override
+    void doImportImpl(Session session, RestClient client) throws Exception {
+        TeamsDTO teams = client.getRequest("https://api.stattleship.com/baseball/mlb/teams", TeamsDTO.class);
+        for (LeagueDTO league: teams.getLeagues()) {
+            doInTransaction(session, () -> {
+                saveTeamsInLeague(session, teams, league);
+            });
 
-                    for (DivisionDTO division: teams.getDivisions()) {
-                        insertDivision(newSession, division);
-                    }
-
-                    for (TeamDTO team: teams.getTeams()) {
-                        insertTeam(newSession, team);
-                    }
-
-                    tx.commit();
-                }
-                catch (Exception e) {
-                    if (tx!=null) tx.rollback();
-                    throw e;
-                }
-                finally {
-                    newSession.close();
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ErrorResolution(500, e.getMessage());
         }
-        return new StreamingResolution("text/plain", "OK");
+
+    }
+
+    private void saveTeamsInLeague(Session session, TeamsDTO teams, LeagueDTO league) {
+        insertLeague(session, league);
+
+        for (ConferenceDTO conference: teams.getConferences()) {
+            insertConference(session, conference);
+        }
+
+        for (DivisionDTO division: teams.getDivisions()) {
+            insertDivision(session, division);
+        }
+
+        for (TeamDTO team: teams.getTeams()) {
+            insertTeam(session, team);
+        }
     }
 
     private void insertLeague(Session newSession, LeagueDTO league) {
@@ -117,6 +111,5 @@ public class TeamImportActionBean extends BaseActionBean {
         League league = (League) cri.uniqueResult();
         teamEntity.setLeague(league);
         newSession.saveOrUpdate(teamEntity);
-
-        }
+    }
 }
