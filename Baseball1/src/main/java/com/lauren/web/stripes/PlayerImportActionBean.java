@@ -32,13 +32,13 @@ public class PlayerImportActionBean extends BaseActionBean {
             newSession.setFlushMode(FlushMode.MANUAL);
             List<Team> teamList = newSession.createCriteria(Team.class).list();
             for (Team team : teamList) {
-                PlayersDTO players = client.getRequest("https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2019&team_id=" + team.getSlug(), PlayersDTO.class);
+                PlayersDTO players = client.getRequest("https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2018&team_id=" + team.getSlug(), PlayersDTO.class);
 
                 for (PlayerDTO player : players.getPlayers()) {
                     Transaction tx = null;
                     try {
                         tx = newSession.beginTransaction();
-                        insertPlayer(newSession, player);
+                        savePlayer(newSession, player);
 
                         tx.commit();
                     } catch (Exception e) {
@@ -59,8 +59,14 @@ public class PlayerImportActionBean extends BaseActionBean {
         return new StreamingResolution("text/plain", "OK");
     }
 
-    private void insertPlayer(Session newSession, PlayerDTO player) {
-        Player playerEntity = new Player();
+    private void savePlayer(Session newSession, PlayerDTO player) {
+        Criteria playerCriteria = newSession.createCriteria(Player.class);
+        playerCriteria.add(Restrictions.eq("externalId", player.getExternalId()));
+        Player playerEntity  = (Player) playerCriteria.uniqueResult();
+        if (playerEntity == null) {
+            playerEntity = new Player();
+        }
+
         playerEntity.setExternalId(player.getExternalId());
         playerEntity.setCreatedAt(player.getCreatedAt());
         playerEntity.setUpdatedAt(player.getUpdatedAt());
@@ -108,10 +114,7 @@ public class PlayerImportActionBean extends BaseActionBean {
         playerEntity.setWeight(player.getWeight());
         playerEntity.setYearsOfExperience(player.getYearsOfExperience());
 
-        Criteria playerLeague = newSession.createCriteria(League.class);
-        playerLeague.add(Restrictions.eq("externalId", player.getLeagueId()));
-        League pLeague = (League) playerLeague.uniqueResult();
-        playerEntity.setLeagueId(pLeague);
+
 
         playerEntity.setPlayingPositionId(player.getPlayingPositionId());
 
