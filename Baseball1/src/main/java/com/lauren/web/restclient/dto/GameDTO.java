@@ -6,97 +6,108 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.codehaus.jackson.annotate.JsonProperty;
 
-//https://api.stattleship.com/baseball/mlb/games?season_id=mlb-2018
+//https://api.stattleship.com/baseball/mlb/games?season_id=mlb-2019
 
 @XmlRootElement
 public class GameDTO extends BaseDTO {
 
     @JsonProperty("id")
-    private String id;
+    private String externalId;
     @JsonProperty("created_at")
     private Date createdAt;
     @JsonProperty("updated_at")
     private Date updatedAt;
+    @JsonProperty("at_neutral_site")
+    private boolean atNeutralSite;
     @JsonProperty("attendance")
     private int attendance;
-    @JsonProperty("awayTeamOutcome")
+    @JsonProperty("away_team_outcome")
     private String awayTeamOutcome;
-    @JsonProperty("awayTeamScore")
+    @JsonProperty("away_team_score")
     private int awayTeamScore;
     @JsonProperty("broadcast")
     private String broadcast;
+    @JsonProperty("clock")
+    private String clock;
+    @JsonProperty("clock_secs")
+    private String clockSecs;
     @JsonProperty("daytime")
     private boolean daytime;
     @JsonProperty("duration")
     private int duration;
-    @JsonProperty("endedAt")
+    @JsonProperty("ended_at")
     private Date endedAt;
-    @JsonProperty("homeTeamOutcome")
+    @JsonProperty("home_team_outcome")
     private String homeTeamOutcome;
-    @JsonProperty("homeTeamScore")
+    @JsonProperty("home_team_score")
     private int homeTeamScore;
+    @JsonProperty("humidity")
+    private String humidity; //nullable
     @JsonProperty("interval")
     private String interval;
-    @JsonProperty("intervalNumber")
+    @JsonProperty("interval_number")
     private int intervalNumber;
-    @JsonProperty("intervalType")
+    @JsonProperty("interval_type")
     private String intervalType;
     @JsonProperty("label")
     private String label;
     @JsonProperty("name")
     private String name;
     @JsonProperty("on")
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "'on' MMMMMMM  d, yyyy")
     private String on;
     @JsonProperty("period")
     private int period;
-    @JsonProperty("periodLabel")
+    @JsonProperty("period_label")
     private String periodLabel;
-    @JsonProperty("scoreDiffernetial")
+    @JsonProperty("score")
+    private String score;
+    @JsonProperty("score_differential")
     private int scoreDifferential;
-    @JsonProperty("scoreLine")
+    @JsonProperty("scoreline")
     private String scoreline;
     @JsonProperty("slug")
     private String slug;
-    @JsonProperty("startedAt")
+    @JsonProperty("started_at")
     private Date startedAt;
     @JsonProperty("status")
     private String status;
-    @JsonProperty("televisionCoverage")
-    private String televisionCoverage;
+    @JsonProperty("internet_coverage")
+    private boolean internetCoverage; //nullable
+    @JsonProperty("satellite_coverage")
+    private boolean satelliteCoverage; //nullable
     @JsonProperty("temperature")
-    private double temperature;
-    @JsonProperty("temperatureUnit")
+    private String temperature;
+    @JsonProperty("temperature_unit")
     private String temperatureUnit;
+    @JsonProperty("timestamp")
+    private int timestamp;
     @JsonProperty("title")
     private String title;
-    @JsonProperty("weatherConditions")
-    private String weatherConditions;
-    @JsonProperty("windDirection")
-    private String windDirection;
-    @JsonProperty("windSpeed")
-    private double windSpeed;
-    @JsonProperty("windSpeedUnit")
-    private String windSpeedUnit;
-    @JsonProperty("homeTeamId")
+    @JsonProperty("weather_conditions")
+    private String weatherConditions; //nullable
+    @JsonProperty("wind_direction")
+    private String windDirection; //nullable
+    @JsonProperty("wind_speed")
+    private double windSpeed; //nullable
+    @JsonProperty("home_team_id")
     private String homeTeamId;
-    @JsonProperty("awayTeamId")
+    @JsonProperty("away_team_id")
     private String awayTeamId;
-    @JsonProperty("winningTeamId")
+    @JsonProperty("winning_team_id")
     private String winningTeamId;
-    @JsonProperty("seasonId")
+    @JsonProperty("season_id")
     private String seasonId;
-    @JsonProperty("venueId")
+    @JsonProperty("venue_id")
     private String venueId;
-    @JsonProperty("officialIds")
-    private List <String> officialIds;
+    @JsonProperty("official_ids")
+    private List<String> officialIds;
 
-    public String getId() {
-        return id;
+    public String getExternalId() {
+        return externalId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
     }
 
     public Date getCreatedAt() {
@@ -113,6 +124,14 @@ public class GameDTO extends BaseDTO {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public boolean isAtNeutralSite() {
+        return atNeutralSite;
+    }
+
+    public void setAtNeutralSite(boolean atNeutralSite) {
+        this.atNeutralSite = atNeutralSite;
     }
 
     public int getAttendance() {
@@ -145,6 +164,22 @@ public class GameDTO extends BaseDTO {
 
     public void setBroadcast(String broadcast) {
         this.broadcast = broadcast;
+    }
+
+    public String getClock() {
+        return clock;
+    }
+
+    public void setClock(String clock) {
+        this.clock = clock;
+    }
+
+    public String getClockSecs() {
+        return clockSecs;
+    }
+
+    public void setClockSecs(String clockSecs) {
+        this.clockSecs = clockSecs;
     }
 
     public boolean isDaytime() {
@@ -185,6 +220,14 @@ public class GameDTO extends BaseDTO {
 
     public void setHomeTeamScore(int homeTeamScore) {
         this.homeTeamScore = homeTeamScore;
+    }
+
+    public String getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(String humidity) {
+        this.humidity = humidity;
     }
 
     public String getInterval() {
@@ -251,6 +294,14 @@ public class GameDTO extends BaseDTO {
         this.periodLabel = periodLabel;
     }
 
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
     public int getScoreDifferential() {
         return scoreDifferential;
     }
@@ -291,19 +342,27 @@ public class GameDTO extends BaseDTO {
         this.status = status;
     }
 
-    public String getTelevisionCoverage() {
-        return televisionCoverage;
+    public boolean isInternetCoverage() {
+        return internetCoverage;
     }
 
-    public void setTelevisionCoverage(String televisionCoverage) {
-        this.televisionCoverage = televisionCoverage;
+    public void setInternetCoverage(boolean internetCoverage) {
+        this.internetCoverage = internetCoverage;
     }
 
-    public double getTemperature() {
+    public boolean isSatelliteCoverage() {
+        return satelliteCoverage;
+    }
+
+    public void setSatelliteCoverage(boolean satelliteCoverage) {
+        this.satelliteCoverage = satelliteCoverage;
+    }
+
+    public String getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(double temperature) {
+    public void setTemperature(String temperature) {
         this.temperature = temperature;
     }
 
@@ -313,6 +372,14 @@ public class GameDTO extends BaseDTO {
 
     public void setTemperatureUnit(String temperatureUnit) {
         this.temperatureUnit = temperatureUnit;
+    }
+
+    public int getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(int timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getTitle() {
@@ -345,14 +412,6 @@ public class GameDTO extends BaseDTO {
 
     public void setWindSpeed(double windSpeed) {
         this.windSpeed = windSpeed;
-    }
-
-    public String getWindSpeedUnit() {
-        return windSpeedUnit;
-    }
-
-    public void setWindSpeedUnit(String windSpeedUnit) {
-        this.windSpeedUnit = windSpeedUnit;
     }
 
     public String getHomeTeamId() {
@@ -403,3 +462,4 @@ public class GameDTO extends BaseDTO {
         this.officialIds = officialIds;
     }
 }
+
