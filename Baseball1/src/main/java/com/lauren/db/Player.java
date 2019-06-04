@@ -263,8 +263,7 @@ public class Player extends BaseEntity {
     }
 
     public void setPositionAbbreviation(String positionAbbreviation) {
-        this.positionAbbreviation = positionAbbreviation;
-    }
+        this.positionAbbreviation = positionAbbreviation; }
 
     @Column(name="position_name", nullable = false)
     public String getPositionName() {

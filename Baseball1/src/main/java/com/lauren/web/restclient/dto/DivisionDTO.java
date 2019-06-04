@@ -18,9 +18,7 @@ public class DivisionDTO extends BaseDTO {
     @JsonProperty("conference_id")
     private String conferenceId;
 
-    public String getExternalId() {
-        return externalId;
-    }
+    public String getExternalId() { return externalId; }
 
     public void setExternalId(String externalId) {
         this.externalId = externalId;
