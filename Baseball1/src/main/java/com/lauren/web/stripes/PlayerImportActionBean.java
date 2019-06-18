@@ -25,7 +25,7 @@ public class PlayerImportActionBean extends BaseImportActionBean {
     void doImportImpl(Session session, RestClient client) throws Exception {
         List<Team> teamList = session.createCriteria(Team.class).list();
         for (Team team : teamList) {
-            PlayersDTO players = client.getRequest("https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2018&team_id=" + team.getSlug(), PlayersDTO.class);
+            PlayersDTO players = client.getRequest("https://api.stattleship.com/baseball/mlb/players?season_id=mlb-2019&team_id=" + team.getSlug(), PlayersDTO.class);
 
 
             for (PlayerDTO player : players.getPlayers()) {

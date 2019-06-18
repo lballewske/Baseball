@@ -940,7 +940,7 @@ public class TeamSeasonStats extends BaseEntity{
         this.wins = wins;
     }
 
-    @Column(name="season_id")
+    @Column(name="season_id", nullable = false)
     public String getSeasonId() {
         return seasonId;
     }
@@ -950,7 +950,7 @@ public class TeamSeasonStats extends BaseEntity{
     }
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "team_id")
+    @JoinColumn(name = "team_id", nullable = false)
     public String getTeamId() {
         return teamId;
     }
