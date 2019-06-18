@@ -1,208 +1,127 @@
-package com.lauren.web.restclient.dto;
+package com.lauren.db;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
+import javax.persistence.*;
 import java.util.Date;
 
-public class TeamSeasonStatsDTO extends BaseDTO {
+public class TeamSeasonStats extends BaseEntity{
 
-    @JsonProperty("id")
-    private String id;
-    @JsonProperty("created_at")
+    private int id;
+    private String externalId;
     private Date createdAt;
-    @JsonProperty("updated_at")
     private Date updatedAt;
-    @JsonProperty("interval_type")
     private String intervalType;
-    @JsonProperty("statistics_on")
     private Date statisticsOn;
-    @JsonProperty("assists")
     private int assists;
-    @JsonProperty("at_bats")
     private int atBats;
-    @JsonProperty("at_bats_per_home_run")
     private double atBatsPerHomeRun;
-    @JsonProperty("at_bats_per_strike_out")
     private double atBatsPerStrikeOut;
-    @JsonProperty("at_bats_risp")
     private double atBatsRisp;
-    @JsonProperty("babip")
     private double babip;
-    @JsonProperty("balls")
     private int balls;
-    @JsonProperty("balls_in_play")
     private int ballsInPlay;
-    @JsonProperty("balls_throwns")
     private int ballsThrowns;
-    @JsonProperty("batters_faced")
     private int battersFaced;
-    @JsonProperty("batting_average")
     private double battingAverage;
-    @JsonProperty("blown_save")
     private int blownSave;
-    @JsonProperty("caught_stealing")
     private int caughtStealing;
-    @JsonProperty("complete_games")
     private int completeGames;
-    @JsonProperty("double_plays")
     private int doublePlays;
-    @JsonProperty("doubles")
     private int doubles;
-    @JsonProperty("doubles_allowed")
     private int doublesAllowed;
-    @JsonProperty("earned_runs")
     private int earnedRuns;
-    @JsonProperty("earned_runs_allowed")
     private int earnedRunsAllowed;
-    @JsonProperty("era")
     private double era;
-    @JsonProperty("extra_base_hits")
     private int extraBaseHits;
-    @JsonProperty("fielders_choice")
     private int fieldersChoice;
-    @JsonProperty("fielders_choice_allowed")
     private int fieldersChoiceAllowed;
-    @JsonProperty("fielding_errors")
     private int fieldingErrors;
-    @JsonProperty("fielding_pct")
     private double fieldingPct;
-    @JsonProperty("fly_outs")
     private int flyOuts;
-    @JsonProperty("fly_outs_allowed")
     private int flyOutsAllowed;
-    @JsonProperty("ground_outs")
     private int groundOuts;
-    @JsonProperty("ground_outs_allowed")
     private int groundOutsAllowed;
-    @JsonProperty("hits")
     private int hits;
-    @JsonProperty("hits_allowed")
     private int hitsAllowed;
-    @JsonProperty("hits_risp")
     private int hitsRisp;
-    @JsonProperty("holds")
     private int holds;
-    @JsonProperty("home_runs")
     private int homeRuns;
-    @JsonProperty("home_runs_allowed")
     private int homeRunsAllowed;
-    @JsonProperty("innings_pitched")
     private double inningsPitched;
-    @JsonProperty("line_outs")
     private int lineOuts;
-    @JsonProperty("line_outs_allowed")
     private int lineOutsAllowed;
-    @JsonProperty("lob_risp_2out")
     private int lobRisp2Out;
-    @JsonProperty("losses")
     private int losses;
-    @JsonProperty("on_base_percentage")
     private double onBasePercentage;
-    @JsonProperty("opponents_batting_average")
     private double opponentsBattingAverage;
-    @JsonProperty("ops")
     private double ops;
-    @JsonProperty("pitcher_runners_left_on_base")
     private int pitcherRunnersLeftOnBase;
-    @JsonProperty("pitches_faced")
     private int pitchesFaced;
-    @JsonProperty("pitches_thrown")
     private int pitchesThrown;
-    @JsonProperty("plate_appearances")
     private int plateAppearances;
-    @JsonProperty("pop_outs")
     private int popOuts;
-    @JsonProperty("pop_outs_allowed")
     private int popOutsAllowed;
-    @JsonProperty("putouts")
     private int putouts;
-    @JsonProperty("quality_starts")
     private int quialityStarts;
-    @JsonProperty("rbi")
     private int rbi;
-    @JsonProperty("reached_on_error")
     private int reachedOnError;
-    @JsonProperty("runners_caught_stealing")
     private int runnersCaughtStealing;
-    @JsonProperty("runners_left_on_base")
     private int runnersLeftOnBase;
-    @JsonProperty("runs")
     private int runs;
-    @JsonProperty("runs_allowed")
     private int runsAllowed;
-    @JsonProperty("sacrifice_flies")
     private int sacrificeFlies;
-    @JsonProperty("sacrifice_flies_allowed")
     private int sacrificeFliesAllowed;
-    @JsonProperty("sacrifice_hits")
     private int sacrificeHits;
-    @JsonProperty("sacrifice_hits_allowed")
     private int sacrificeHitsAllowed;
-    @JsonProperty("save_opportunities")
     private int saveOpportunities;
-    @JsonProperty("saves")
     private int saves;
-    @JsonProperty("shutouts")
     private int shutouts;
-    @JsonProperty("singles")
     private int singles;
-    @JsonProperty("singles_allowed")
     private int singlesAllowed;
-    @JsonProperty("slugging_pct")
     private double sluggingPct;
-    @JsonProperty("stolen_base_pct")
     private double stolenBasePct;
-    @JsonProperty("stolen_bases")
     private int stolenBases;
-    @JsonProperty("stolen_bases_allowed")
     private int stolenBasesAllowed;
-    @JsonProperty("strikeouts")
     private int strikeouts;
-    @JsonProperty("strikeouts_allowed")
     private int strikeoutsAllowed;
-    @JsonProperty("strikeouts_per_9_innings")
     private double strikeoutsPer9Innings;
-    @JsonProperty("strikes")
     private int strikes;
-    @JsonProperty("strikes_thrown")
     private int strikesThrown;
-    @JsonProperty("team_shutouts")
     private int teamShutouts;
-    @JsonProperty("total_bases")
     private int totalBases;
-    @JsonProperty("total_bases_allowed")
     private int totalBasesAllowed;
-    @JsonProperty("triple_plays")
     private int triplePlays;
-    @JsonProperty("triples")
     private int triples;
-    @JsonProperty("triples_allowed")
     private int triplesAllowed;
-    @JsonProperty("unearned_runs")
     private int unearnedRuns;
-    @JsonProperty("unearned_runs_allowed")
     private int unearnedRunsAllowed;
-    @JsonProperty("walks")
     private int walks;
-    @JsonProperty("walks_allowed")
     private int walksAllowed;
-    @JsonProperty("whip")
     private double whip;
-    @JsonProperty("wins")
     private int wins;
-    @JsonProperty("season_id")
     private String seasonId;
-    @JsonProperty("team_id")
     private String teamId;
 
-    public String getId() {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="id", nullable=false)
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
+    @Column(name="external_id", nullable=false)
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    @Column(name="created_at", nullable = false)
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -211,6 +130,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.createdAt = createdAt;
     }
 
+    @Column(name="updated_at")
     public Date getUpdatedAt() {
         return updatedAt;
     }
@@ -219,6 +139,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.updatedAt = updatedAt;
     }
 
+    @Column(name="interval_type")
     public String getIntervalType() {
         return intervalType;
     }
@@ -227,6 +148,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.intervalType = intervalType;
     }
 
+    @Column(name="statistics_on")
     public Date getStatisticsOn() {
         return statisticsOn;
     }
@@ -235,6 +157,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.statisticsOn = statisticsOn;
     }
 
+    @Column(name="assists")
     public int getAssists() {
         return assists;
     }
@@ -243,6 +166,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.assists = assists;
     }
 
+    @Column(name="at_bats")
     public int getAtBats() {
         return atBats;
     }
@@ -251,6 +175,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.atBats = atBats;
     }
 
+    @Column(name="at_bats_per_home_run")
     public double getAtBatsPerHomeRun() {
         return atBatsPerHomeRun;
     }
@@ -259,6 +184,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.atBatsPerHomeRun = atBatsPerHomeRun;
     }
 
+    @Column(name="at_bats_per_strike_out")
     public double getAtBatsPerStrikeOut() {
         return atBatsPerStrikeOut;
     }
@@ -267,6 +193,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.atBatsPerStrikeOut = atBatsPerStrikeOut;
     }
 
+    @Column(name="at_bats_risp")
     public double getAtBatsRisp() {
         return atBatsRisp;
     }
@@ -275,6 +202,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.atBatsRisp = atBatsRisp;
     }
 
+    @Column(name="babip")
     public double getBabip() {
         return babip;
     }
@@ -283,6 +211,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.babip = babip;
     }
 
+    @Column(name="balls")
     public int getBalls() {
         return balls;
     }
@@ -291,6 +220,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.balls = balls;
     }
 
+    @Column(name="balls_in_play")
     public int getBallsInPlay() {
         return ballsInPlay;
     }
@@ -299,6 +229,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.ballsInPlay = ballsInPlay;
     }
 
+    @Column(name="balls_throwns")
     public int getBallsThrowns() {
         return ballsThrowns;
     }
@@ -307,6 +238,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.ballsThrowns = ballsThrowns;
     }
 
+    @Column(name="batters_faced")
     public int getBattersFaced() {
         return battersFaced;
     }
@@ -315,6 +247,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.battersFaced = battersFaced;
     }
 
+    @Column(name="batting_average")
     public double getBattingAverage() {
         return battingAverage;
     }
@@ -323,6 +256,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.battingAverage = battingAverage;
     }
 
+    @Column(name="blown_save")
     public int getBlownSave() {
         return blownSave;
     }
@@ -331,6 +265,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.blownSave = blownSave;
     }
 
+    @Column(name="caught_stealing")
     public int getCaughtStealing() {
         return caughtStealing;
     }
@@ -339,6 +274,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.caughtStealing = caughtStealing;
     }
 
+    @Column(name="complete_games")
     public int getCompleteGames() {
         return completeGames;
     }
@@ -347,6 +283,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.completeGames = completeGames;
     }
 
+    @Column(name="double_plays")
     public int getDoublePlays() {
         return doublePlays;
     }
@@ -355,6 +292,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.doublePlays = doublePlays;
     }
 
+    @Column(name="doubles")
     public int getDoubles() {
         return doubles;
     }
@@ -363,6 +301,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.doubles = doubles;
     }
 
+    @Column(name="doubles_allowed")
     public int getDoublesAllowed() {
         return doublesAllowed;
     }
@@ -371,6 +310,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.doublesAllowed = doublesAllowed;
     }
 
+    @Column(name="earned_runs")
     public int getEarnedRuns() {
         return earnedRuns;
     }
@@ -379,6 +319,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.earnedRuns = earnedRuns;
     }
 
+    @Column(name="earned_runs_allowed")
     public int getEarnedRunsAllowed() {
         return earnedRunsAllowed;
     }
@@ -387,6 +328,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.earnedRunsAllowed = earnedRunsAllowed;
     }
 
+    @Column(name="era")
     public double getEra() {
         return era;
     }
@@ -395,6 +337,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.era = era;
     }
 
+    @Column(name="extra_base_hits")
     public int getExtraBaseHits() {
         return extraBaseHits;
     }
@@ -403,6 +346,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.extraBaseHits = extraBaseHits;
     }
 
+    @Column(name="fielders_choice")
     public int getFieldersChoice() {
         return fieldersChoice;
     }
@@ -411,6 +355,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.fieldersChoice = fieldersChoice;
     }
 
+    @Column(name="fielders_choice_allowed")
     public int getFieldersChoiceAllowed() {
         return fieldersChoiceAllowed;
     }
@@ -419,6 +364,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.fieldersChoiceAllowed = fieldersChoiceAllowed;
     }
 
+    @Column(name="fielding_errors")
     public int getFieldingErrors() {
         return fieldingErrors;
     }
@@ -427,6 +373,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.fieldingErrors = fieldingErrors;
     }
 
+    @Column(name="fielding_pct")
     public double getFieldingPct() {
         return fieldingPct;
     }
@@ -435,6 +382,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.fieldingPct = fieldingPct;
     }
 
+    @Column(name="fly_outs")
     public int getFlyOuts() {
         return flyOuts;
     }
@@ -443,6 +391,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.flyOuts = flyOuts;
     }
 
+    @Column(name="fly_outs_allowed")
     public int getFlyOutsAllowed() {
         return flyOutsAllowed;
     }
@@ -451,6 +400,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.flyOutsAllowed = flyOutsAllowed;
     }
 
+    @Column(name="ground_outs")
     public int getGroundOuts() {
         return groundOuts;
     }
@@ -459,6 +409,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.groundOuts = groundOuts;
     }
 
+    @Column(name="ground_outs_allowed")
     public int getGroundOutsAllowed() {
         return groundOutsAllowed;
     }
@@ -467,6 +418,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.groundOutsAllowed = groundOutsAllowed;
     }
 
+    @Column(name="hits")
     public int getHits() {
         return hits;
     }
@@ -475,6 +427,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.hits = hits;
     }
 
+    @Column(name="hits_allowed")
     public int getHitsAllowed() {
         return hitsAllowed;
     }
@@ -483,6 +436,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.hitsAllowed = hitsAllowed;
     }
 
+    @Column(name="hits_risp")
     public int getHitsRisp() {
         return hitsRisp;
     }
@@ -491,6 +445,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.hitsRisp = hitsRisp;
     }
 
+    @Column(name="holds")
     public int getHolds() {
         return holds;
     }
@@ -499,6 +454,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.holds = holds;
     }
 
+    @Column(name="home_runs")
     public int getHomeRuns() {
         return homeRuns;
     }
@@ -507,6 +463,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.homeRuns = homeRuns;
     }
 
+    @Column(name="home_runs_allowed")
     public int getHomeRunsAllowed() {
         return homeRunsAllowed;
     }
@@ -515,6 +472,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.homeRunsAllowed = homeRunsAllowed;
     }
 
+    @Column(name="innings_pitched")
     public double getInningsPitched() {
         return inningsPitched;
     }
@@ -523,6 +481,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.inningsPitched = inningsPitched;
     }
 
+    @Column(name="line_outs")
     public int getLineOuts() {
         return lineOuts;
     }
@@ -531,6 +490,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.lineOuts = lineOuts;
     }
 
+    @Column(name="line_outs_allowed")
     public int getLineOutsAllowed() {
         return lineOutsAllowed;
     }
@@ -539,6 +499,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.lineOutsAllowed = lineOutsAllowed;
     }
 
+    @Column(name="lob_risp_2out")
     public int getLobRisp2Out() {
         return lobRisp2Out;
     }
@@ -547,6 +508,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.lobRisp2Out = lobRisp2Out;
     }
 
+    @Column(name="losses")
     public int getLosses() {
         return losses;
     }
@@ -555,6 +517,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.losses = losses;
     }
 
+    @Column(name="on_base_percentage")
     public double getOnBasePercentage() {
         return onBasePercentage;
     }
@@ -563,6 +526,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.onBasePercentage = onBasePercentage;
     }
 
+    @Column(name="opponents_batting_average")
     public double getOpponentsBattingAverage() {
         return opponentsBattingAverage;
     }
@@ -571,6 +535,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.opponentsBattingAverage = opponentsBattingAverage;
     }
 
+    @Column(name="ops")
     public double getOps() {
         return ops;
     }
@@ -579,6 +544,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.ops = ops;
     }
 
+    @Column(name="pitcher_runners_left_on_base")
     public int getPitcherRunnersLeftOnBase() {
         return pitcherRunnersLeftOnBase;
     }
@@ -587,6 +553,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.pitcherRunnersLeftOnBase = pitcherRunnersLeftOnBase;
     }
 
+    @Column(name="pitches_faced")
     public int getPitchesFaced() {
         return pitchesFaced;
     }
@@ -595,6 +562,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.pitchesFaced = pitchesFaced;
     }
 
+    @Column(name="pitches_thrown")
     public int getPitchesThrown() {
         return pitchesThrown;
     }
@@ -603,6 +571,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.pitchesThrown = pitchesThrown;
     }
 
+    @Column(name="plate_appearances")
     public int getPlateAppearances() {
         return plateAppearances;
     }
@@ -611,6 +580,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.plateAppearances = plateAppearances;
     }
 
+    @Column(name="pop_outs")
     public int getPopOuts() {
         return popOuts;
     }
@@ -619,6 +589,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.popOuts = popOuts;
     }
 
+    @Column(name="pop_outs_allowed")
     public int getPopOutsAllowed() {
         return popOutsAllowed;
     }
@@ -627,6 +598,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.popOutsAllowed = popOutsAllowed;
     }
 
+    @Column(name="putouts")
     public int getPutouts() {
         return putouts;
     }
@@ -635,6 +607,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.putouts = putouts;
     }
 
+    @Column(name="quality_starts")
     public int getQuialityStarts() {
         return quialityStarts;
     }
@@ -643,6 +616,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.quialityStarts = quialityStarts;
     }
 
+    @Column(name="rbi")
     public int getRbi() {
         return rbi;
     }
@@ -651,6 +625,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.rbi = rbi;
     }
 
+    @Column(name="reached_on_error")
     public int getReachedOnError() {
         return reachedOnError;
     }
@@ -659,6 +634,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.reachedOnError = reachedOnError;
     }
 
+    @Column(name="runners_caught_stealing")
     public int getRunnersCaughtStealing() {
         return runnersCaughtStealing;
     }
@@ -667,6 +643,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.runnersCaughtStealing = runnersCaughtStealing;
     }
 
+    @Column(name="runners_left_on_base")
     public int getRunnersLeftOnBase() {
         return runnersLeftOnBase;
     }
@@ -675,6 +652,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.runnersLeftOnBase = runnersLeftOnBase;
     }
 
+    @Column(name="runs")
     public int getRuns() {
         return runs;
     }
@@ -683,6 +661,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.runs = runs;
     }
 
+    @Column(name="runs_allowed")
     public int getRunsAllowed() {
         return runsAllowed;
     }
@@ -691,6 +670,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.runsAllowed = runsAllowed;
     }
 
+    @Column(name="sacrifice_flies")
     public int getSacrificeFlies() {
         return sacrificeFlies;
     }
@@ -699,6 +679,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.sacrificeFlies = sacrificeFlies;
     }
 
+    @Column(name="sacrifice_flies_allowed")
     public int getSacrificeFliesAllowed() {
         return sacrificeFliesAllowed;
     }
@@ -707,6 +688,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.sacrificeFliesAllowed = sacrificeFliesAllowed;
     }
 
+    @Column(name="sacrifice_hits")
     public int getSacrificeHits() {
         return sacrificeHits;
     }
@@ -715,6 +697,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.sacrificeHits = sacrificeHits;
     }
 
+    @Column(name="sacrifice_hits_allowed")
     public int getSacrificeHitsAllowed() {
         return sacrificeHitsAllowed;
     }
@@ -723,6 +706,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.sacrificeHitsAllowed = sacrificeHitsAllowed;
     }
 
+    @Column(name="save_opportunities")
     public int getSaveOpportunities() {
         return saveOpportunities;
     }
@@ -731,6 +715,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.saveOpportunities = saveOpportunities;
     }
 
+    @Column(name="saves")
     public int getSaves() {
         return saves;
     }
@@ -739,6 +724,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.saves = saves;
     }
 
+    @Column(name="shutouts")
     public int getShutouts() {
         return shutouts;
     }
@@ -747,6 +733,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.shutouts = shutouts;
     }
 
+    @Column(name="singles")
     public int getSingles() {
         return singles;
     }
@@ -755,6 +742,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.singles = singles;
     }
 
+    @Column(name="singles_allowed")
     public int getSinglesAllowed() {
         return singlesAllowed;
     }
@@ -763,6 +751,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.singlesAllowed = singlesAllowed;
     }
 
+    @Column(name="slugging_pct")
     public double getSluggingPct() {
         return sluggingPct;
     }
@@ -771,6 +760,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.sluggingPct = sluggingPct;
     }
 
+    @Column(name="stolen_base_pct")
     public double getStolenBasePct() {
         return stolenBasePct;
     }
@@ -779,6 +769,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.stolenBasePct = stolenBasePct;
     }
 
+    @Column(name="stolen_bases")
     public int getStolenBases() {
         return stolenBases;
     }
@@ -787,6 +778,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.stolenBases = stolenBases;
     }
 
+    @Column(name="stolen_bases_allowed")
     public int getStolenBasesAllowed() {
         return stolenBasesAllowed;
     }
@@ -795,6 +787,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.stolenBasesAllowed = stolenBasesAllowed;
     }
 
+    @Column(name="strikeouts")
     public int getStrikeouts() {
         return strikeouts;
     }
@@ -803,6 +796,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.strikeouts = strikeouts;
     }
 
+    @Column(name="strikeouts_allowed")
     public int getStrikeoutsAllowed() {
         return strikeoutsAllowed;
     }
@@ -811,6 +805,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.strikeoutsAllowed = strikeoutsAllowed;
     }
 
+    @Column(name="strikeouts_per_9_innings")
     public double getStrikeoutsPer9Innings() {
         return strikeoutsPer9Innings;
     }
@@ -819,6 +814,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.strikeoutsPer9Innings = strikeoutsPer9Innings;
     }
 
+    @Column(name="strikes")
     public int getStrikes() {
         return strikes;
     }
@@ -827,6 +823,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.strikes = strikes;
     }
 
+    @Column(name="strikes_thrown")
     public int getStrikesThrown() {
         return strikesThrown;
     }
@@ -835,6 +832,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.strikesThrown = strikesThrown;
     }
 
+    @Column(name="team_shutouts")
     public int getTeamShutouts() {
         return teamShutouts;
     }
@@ -843,6 +841,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.teamShutouts = teamShutouts;
     }
 
+    @Column(name="total_bases")
     public int getTotalBases() {
         return totalBases;
     }
@@ -851,6 +850,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.totalBases = totalBases;
     }
 
+    @Column(name="total_bases_allowed")
     public int getTotalBasesAllowed() {
         return totalBasesAllowed;
     }
@@ -859,6 +859,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.totalBasesAllowed = totalBasesAllowed;
     }
 
+    @Column(name="triple_plays")
     public int getTriplePlays() {
         return triplePlays;
     }
@@ -867,6 +868,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.triplePlays = triplePlays;
     }
 
+    @Column(name="triples")
     public int getTriples() {
         return triples;
     }
@@ -875,6 +877,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.triples = triples;
     }
 
+    @Column(name="triples_allowed")
     public int getTriplesAllowed() {
         return triplesAllowed;
     }
@@ -883,6 +886,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.triplesAllowed = triplesAllowed;
     }
 
+    @Column(name="unearned_runs")
     public int getUnearnedRuns() {
         return unearnedRuns;
     }
@@ -891,6 +895,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.unearnedRuns = unearnedRuns;
     }
 
+    @Column(name="unearned_runs_allowed")
     public int getUnearnedRunsAllowed() {
         return unearnedRunsAllowed;
     }
@@ -899,6 +904,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.unearnedRunsAllowed = unearnedRunsAllowed;
     }
 
+    @Column(name="walks")
     public int getWalks() {
         return walks;
     }
@@ -907,6 +913,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.walks = walks;
     }
 
+    @Column(name="walks_allowed")
     public int getWalksAllowed() {
         return walksAllowed;
     }
@@ -915,6 +922,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.walksAllowed = walksAllowed;
     }
 
+    @Column(name="whip")
     public double getWhip() {
         return whip;
     }
@@ -923,6 +931,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.whip = whip;
     }
 
+    @Column(name="wins")
     public int getWins() {
         return wins;
     }
@@ -931,6 +940,7 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.wins = wins;
     }
 
+    @Column(name="season_id")
     public String getSeasonId() {
         return seasonId;
     }
@@ -939,6 +949,8 @@ public class TeamSeasonStatsDTO extends BaseDTO {
         this.seasonId = seasonId;
     }
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
     public String getTeamId() {
         return teamId;
     }

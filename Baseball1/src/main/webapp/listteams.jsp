@@ -12,7 +12,7 @@
 </tr>
 <c:forEach items='${teams}' var="team">
 <tr>
-<td> ${team.id}
+<td> ${team.externalId}
 </td>
 <td> ${team.name} ${team.nickname}
 </td>
